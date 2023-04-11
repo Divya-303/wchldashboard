@@ -1,0 +1,143 @@
+body{
+  font-family: 'Roboto';
+}
+
+/* .App {
+  text-align: center;
+} */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Login */
+
+.icon-width {
+  width: 22%;
+}
+/* .bg-color {
+  background-color: #f1faff;
+  min-height: calc(100vh-30px);
+} */
+
+/* Navbar */
+/* 
+.navbar {
+  background-image: url(../src/assets/images/bg-image-nav.jpg);
+  background-size: cover;
+} */
+
+
+
+.navbar {
+  position: relative;
+  opacity: 0.99;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* background: url(../src/assets/images/bg-image-nav.jpg) no-repeat 0 50%; */
+  background-image: url(../src/assets/images/bg-image-nav.jpg);
+  background-size: cover;
+  opacity: 0.9;
+}
+
+.nav-heading {
+  margin-top: -75px;
+}
+
+.card {
+  box-shadow: 3px 3px 9px 5px rgba(169,184,200,.15);
+  -webkit-box-shadow: 3px 3px 9px 5px rgba(169,184,200,.15);
+}
+
+.border-end {
+  border: 1px solid #edf2f9!important;
+  border-radius: 0.55rem;
+  /* background:#d3d5efa3; */
+}
+
+.border-end:hover {
+  transition: 2.9s;
+  /* transform: rotateY(360deg); */
+  background-color: #80b5ff;
+}
+
+.border-end:hover .icon-color{
+    /* transition: 2.9s; */
+    color: #fff !important;
+}
+/* .border-end:hover .case-text{ */
+
+.col-case:nth-child(odd) .border-end {
+    border-top: 3px solid #205ab1 !important;
+  }
+
+.col-case:nth-child(even) .border-end {
+    border-top: 3px solid #3291f3 !important;
+}
+
+.col-case:nth-child(odd) .border-end .icon-color{
+   color: #205ab1;
+}
+
+.col-case:nth-child(even) .border-end .icon-color{
+  color: #3291f3;
+}
+
+/* Card */
+.card-design {
+  box-shadow: 3px 3px 9px 5px rgb(169 184 200 / 23%) !important;
+  -webkit-box-shadow: 3px 3px 9px 5px rgba(169,184,200,.15);
+  height: 100%;
+  border: none;
+}
+
+/* Map */
+.map-height {
+  height: 60vh;
+}
+.leaflet-container {
+  width: 100%;
+  height: 60vh;
+}
+
+/* Chart */
+/* .height-adjust{
+  height: 300px;
+} */
