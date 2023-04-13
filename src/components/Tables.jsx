@@ -1,38 +1,90 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import cases from './../../src/data/cases.js';
 
-const Tables = () => {
+
+function TableEntry() {
+
+  const column = Object.keys(cases[0]);
+
+  // to get table head data <th>
+  const THData =()=>{
+    return column.map((data)=>{
+        return <th key={data}>{data}</th>
+    })
+  }
+
+  // to get table data <td>
+  const TDData =() =>{
+    return cases.map((data)=>{
+      return(
+          <tr>{
+                column.map((v)=>{return <td>{data[v]}</td>})
+              }
+          </tr>
+      )
+    })
+  }
+
   return (
-    <Table bordered hover>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Username</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td colSpan={2}>Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </Table>
-  )
+    <>
+    <Table className="table" striped bordered hover size="sm" responsive="lg" variant="primary">
+        <thead>
+         <tr>{THData()}</tr>
+        </thead>
+        <tbody>
+        {TDData()}
+        </tbody>
+       </Table>
+
+    
+
+    {/* <Table striped hover size="sm" responsive="lg" variant="primary">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Reported cases</th>
+          <th>Resolved cases</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Child Missing</td>
+          <td>1550</td>
+          <td>895</td>
+        </tr>
+        <tr>
+          <td>Harassment</td>
+          <td>1705</td>
+          <td>1023</td>
+        </tr>
+        <tr>
+          <td>Child Labour</td>
+          <td>133</td>
+          <td>99</td>
+        </tr>
+        <tr>
+          <td>Home Violence</td>
+          <td>203</td>
+          <td>86</td>
+        </tr>
+        <tr>
+          <td>Early marriage</td>
+          <td>110</td>
+          <td>59</td>
+        </tr>
+        <tr>
+          <td>Domestic Abuse</td>
+          <td>520</td>
+          <td>269</td>
+        </tr>
+      </tbody>
+    </Table> */}
+    
+     {/* <Button variant="outline-dark">+Add</Button>{' '} */}
+    </>
+  );
 }
 
-export default Tables;
+export default TableEntry;
