@@ -44,8 +44,28 @@ body{
 /* Login */
 
 .icon-width {
-  width: 22%;
+  width: 20%;
+  font-size: 24px;
 }
+
+.login-form {
+  width: 45%;
+}
+
+.email-input {
+  background: url("../src/assets/images/email.png") no-repeat left 5px center;
+  background-size: 30px;
+  height: 35px;
+  padding-left: 40px;
+}
+
+.password-input {
+  background: url("../src/assets/images/password.png") no-repeat left 5px center;
+  background-size: 30px;
+  height: 35px;
+  padding-left: 40px;
+}
+
 /* .bg-color {
   background-color: #f1faff;
   min-height: calc(100vh-30px);
@@ -126,6 +146,13 @@ body{
   -webkit-box-shadow: 3px 3px 9px 5px rgba(169,184,200,.15);
   height: 100%;
   border: none;
+}
+
+/* Date range picker */
+.date-range-input {
+  background: url("../src/assets/images/calender.png") no-repeat left;
+  background-size: 30px;
+  height: 35px;
 }
 
 /* Map */

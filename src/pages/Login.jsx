@@ -66,15 +66,15 @@ return(
 <Container fluid>
   <Row className="vh-100 align-items-center">
     <Col xs={12} xl={5}>
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="mx-auto login-form">
         <form onSubmit={handleSubmit} noValidate>
           <div className="text-center text-light icon-width bg-primary p-2 border border-light rounded-circle mx-auto">
             <i className="fa fa-lock" />
           </div>
           <h3 className="text-center">Login</h3>
         <Form.Group className="mb-3 form-control-sm" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" onChange={(e) => setEmail(e.target.value)} />
+        <Form.Label>Email</Form.Label>
+        <Form.Control className="email-input" type="email" autoComplete="off" onChange={(e) => setEmail(e.target.value)} />
         <Form.Text className="text-muted">
         {errors.email && (
                     <span className="help is-danger">{errors.email}</span>
@@ -91,7 +91,7 @@ return(
           </div> */}
         <Form.Group className="mb-3 form-control-sm" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} />
+        <Form.Control className="password-input" autoComplete="off" type="password" onChange={(e) => setPassword(e.target.value)} />
         </Form.Group>
           {/* <div className="mb-2 form-control-sm">
             <label htmlFor="loginInputPassword" className="form-label">Password</label>

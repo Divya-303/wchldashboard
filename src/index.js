@@ -4,6 +4,7 @@ import './index.css';
 import './assets/css/bootstrap.min.css';
 import './assets/css/all.min.css';
 import './assets/css/font.css';
+import 'bootstrap-daterangepicker/daterangepicker.css';
 import 'leaflet/dist/leaflet.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

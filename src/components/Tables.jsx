@@ -10,11 +10,10 @@ function TableEntry() {
 
 
   const TDData =() =>{
-    return cases.map((data, index)=>{
-      console.log(data, index);
+    return cases.map((data, i)=>{
       return(
-          <tr className='table-row'>{
-                column.map((v)=>{return <td><a href='' link='' className='cases-link'>{data[v]} </a></td>})
+          <tr key={"row-"+i} className='table-row'>{
+                column.map((v, j)=>{return <td key={"col-"+j}><a href='' link='' className='cases-link'>{data[v]} </a></td>})
               } 
               {/* <a href='' link=''> <FontAwesomeIcon icon={faCircleCheck} size="sm" style={{color: "#3974db",}} /></a> */}
           </tr> 
