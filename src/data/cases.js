@@ -7,22 +7,22 @@ const cases = [
     solved : "100"
   },
   {
-      id: "2",
-      name: "Child Labour",
-      count: "300",
-      solved : "215"
+    id: "2",
+    name: "Child Labour",
+    count: "300",
+    solved : "215"
   },
   {
-      id: "3",
-      name: "Violence at school",
-      count: "50",
-      solved : "10"
+    id: "3",
+    name: "Violence at school",
+    count: "50",
+    solved : "10"
   },
   {
-      id: "4",
-      name: "Harrasment",
-      count: "1352",
-      solved : "1250"
+    id: "4",
+    name: "Harrasment",
+    count: "1352",
+    solved : "1250"
   },
   {
     id: "5",

@@ -113,7 +113,7 @@ body{
 }
 
 .col-case:nth-child(odd) .border-end .icon-color{
-   color: #205ab1;
+  color: #205ab1;
 }
 
 .col-case:nth-child(even) .border-end .icon-color{
@@ -141,3 +141,25 @@ body{
 /* .height-adjust{
   height: 300px;
 } */
+
+/* for table */
+.table-head {
+  background-color: #568ad3;
+  color: white;
+  font-size: 15px;
+  font-family: math;
+}
+.table-row {
+  background-color: aliceblue;
+}
+.cases-link {
+ text-decoration: none;
+color: rgb(106 119 141);
+font-size: smaller;
+}
+tr.table-row:hover {
+  box-shadow: rgb(133 177 251 / 46%) 0px 30px 60px -12px inset, rgb(133 177 251 / 50%) 0px 18px 36px -18px inset;
+}
+a.cases-link:hover {
+  color: #034ef7;
+}
