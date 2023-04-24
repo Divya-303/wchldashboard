@@ -36,8 +36,8 @@ const Cards = (props) => {
 
 
       <Container>
-      <Row className="gy-3">
-      {/* {props.type === 'Cases' && 
+    <Row className="gy-3">
+{/* {props.type === 'Cases' && 
       <>
     <Col xs={12} xl={6} className='text-start'>
     <FontAwesomeIcon className="icon-color" icon={Icon} size="3x"/>
@@ -73,16 +73,15 @@ const Cards = (props) => {
 
 {props.type === 'Signals' && 
 <>
-<Col xs={12} xl={5} className='text-start rounded-circle bg-soft align-items-center'>
-    <FontAwesomeIcon className='pt-3 ms-2' icon={Icon} size="2xl" style={{color: props.color}} />
+<Col xs={12} xl={5} className='text-start rounded-circle bg-soft d-flex justify-content-center align-items-center'>
+    <FontAwesomeIcon icon={Icon} size="2xl" style={{color: props.color}} />
     </Col>
-    <Col xs={12} xl={7} className='text-end align-items-center'>
+    <Col xs={12} xl={7} className='text-end mx-auto pe-0'>
             <h4 className='fw-bolder card-count'>{props.count}</h4>
             <h6 className='fw-bolder card-name'>{props.name}</h6>
     </Col>
     </>
 }
-
     </Row>
 
     {/* edit starts */}

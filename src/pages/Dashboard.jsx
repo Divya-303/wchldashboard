@@ -49,7 +49,7 @@ return(
       </Col>
 
       <Col xl={7}>  {/*col3*/}
-        <Row>
+        <Row className="">
         {signals.map((data, index) => (
           <Col xs={12} sm={6} xl={3} key={data.id} className="col-case">
           <Cards key={data.id}

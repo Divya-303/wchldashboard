@@ -265,6 +265,7 @@ background-color: #27caef !important;
 }
 .card-count {
   color: #354864;
+  align-content: end;
 }
 
 
@@ -273,7 +274,6 @@ background-color: #27caef !important;
 .bg-soft{
   width: 60px;
   height: 60px;
-  
 }
 .col-case:nth-child(1) .border-end .bg-soft {
   background-color: rgba(30,202,123,0.08);
