@@ -4,7 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faPersonCircleQuestion, faPersonDigging, faPersonBurst, faPersonHarassing } from '@fortawesome/free-solid-svg-icons';
+//import { faPersonCircleQuestion, faPersonDigging, faPersonBurst, faPersonHarassing } from '@fortawesome/free-solid-svg-icons';
+//import { faPhone, faEnvelope, faCommentSms, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
+//import * as Icons from '@fortawesome/fontawesome-free-regular';
 import * as Icons from '@fortawesome/free-solid-svg-icons';
 
 const Cards = (props) => {
@@ -15,6 +17,10 @@ const Cards = (props) => {
     //   const handleTransitionEnd = (e) => {
     //     e.target.classList.remove("hover");
     //   }
+
+
+
+
   return (
     <Card className="border-end">
          {/* <Card className="border-end" onMouseEnter={handleMouseEnter}
@@ -26,16 +32,30 @@ const Cards = (props) => {
         {/* {props.icon} */}
         {/* <FontAwesomeIcon icon={faEnvelope} size="3x"/>
       </Card.Text> */}
+
+
       <Container>
     <Row>
-    <Col xs={12} xl={6} className='text-start'>
-    <FontAwesomeIcon className="icon-color" icon={Icon} size="3x"/>
+    <Col xs={12} xl={5} className='text-start rounded-circle bg-soft align-items-center'>
+    <FontAwesomeIcon className='pt-3 ms-2' icon={Icon} size="2xl" style={{color: props.color}} />
     </Col>
-    <Col xs={12} xl={6} className='text-end case-text'>
-            <h4 className='fw-bolder'>{props.count}</h4>
-            <h6 className='fw-bolder'>{props.name}</h6>
+    <Col xs={12} xl={7} className='text-end align-items-center'>
+            <h4 className='fw-bolder card-count'>{props.count}</h4>
+            <h6 className='fw-bolder card-name'>{props.name}</h6>
     </Col>
     </Row>
+
+    {/* edit starts */}
+    {/* <Row> 
+       <Col xs={12} xl={6} className='icon-class'>
+        <FontAwesomeIcon icon={Icon} size="3x" style={{color: props.color}}/>
+       </Col>
+       <Col xs={12} xl={6} className='text-end'>
+       <h6 className='card-signal-name'>{props.name}</h6>
+       <h4 className='card-signal-number'> {props.count}</h4>
+      </Col>
+    </Row> */}
+    {/* edit ends */}
     </Container>
       {/* <div class="media d-flex">
                 <div class="align-self-center">

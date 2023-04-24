@@ -12,10 +12,13 @@ import DatePickerRange from "../components/DatePickerRange";
 import map from '../assets/images/india-map.png';
 // import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
-// import DoughnutChart from "../components/DoughnutChart";
+import DoughnutChart from "../components/DoughnutChart";
 // import PieChart from "../components/PieChart";
 import Tables from "../components/Tables";
 import Footer from "../components/Footer";
+import Cards from "../components/Cards";
+import signals from './../data/signals';
+import BarChart from "../components/BarChart";
 
 
 const Dashboard = () => {
@@ -23,8 +26,58 @@ return(
     <>
     <Header />
     {/* <SideMenu /> */}
+
     <Container fluid className="bg-color">
-    <Row className="mt-3 gy-3">
+      
+      <Row className="mt-2 gy-2">
+
+      <Col xl={5}>  {/*col2*/}
+      <Card className="p-2 card-design">
+      <div className="w-50 mb-2">
+      <h6 className="fw-bold">Cases Reported Between The Range: </h6>
+      {/* <DatePickerRange /> */}
+      </div>
+      </Card>
+          {/* <DoughnutChart /> */}
+      </Col>
+
+      <Col xl={7}>  {/*col3*/}
+        <Row>
+        {signals.map((data, index) => (
+          <Col xs={12} sm={6} xl={3} key={data.id} className="col-case">
+          <Cards key={data.id}
+            name={data.name}
+            icon={data.icon}
+            color={data.color}
+            count={data.count} />
+          </Col>
+        ))}
+        </Row>
+      </Col>
+
+      
+
+
+      </Row>
+
+      
+    
+    {/* for signal-cards */}
+    {/* <Row className="mt-1 gy-1">
+
+    {signals.map((data, index) => (
+        <Col xs={12} sm={6} xl={3} key={data.id}>
+        <Cards key={data.id}
+            name={data.name}
+            icon={data.icon}
+            color={data.color}
+            count={data.count} />
+        </Col>
+      ))}
+
+    </Row> */}
+
+    <Row className="mt-2 gy-2">
         <>
     {/* {cases.map((data, index) => (
         <Col xs={12} sm={6} xl={3} key={data.id} className="col-case">
@@ -35,14 +88,35 @@ return(
       </Col>
       ))} */}
       </>
-      <Col xl={12}>  
-      <Card className="p-3 card-design">
-      <h5 className="card-title fw-bold">Cases Reported Between The Range </h5>
-      <div className="mx-auto w-50 mb-3">
-       <DatePickerRange />
+
+      <Col xs={12} xl={9}>
+      <Card className="p-2 card-design">
+      <div className="mb-2">
+      <h6 className="fw-bold">All state Report: </h6>
+          <BarChart />
+      </div>
+      </Card>
+
+      </Col>
+
+      <Col xs={12} xl={3}>  {/*col1*/}
+      <Card className="p-2 card-design">
+      <div className="mb-2">
+      <h6 className="fw-bold">Call Analytics: </h6>
+          <DoughnutChart />
       </div>
       </Card>
       </Col>
+
+      
+
+      
+
+      
+
+     
+
+
        {/*<Col xs={12} lg={3}><Cards /></Col>
       <Col xs={12} lg={3}><Cards /></Col>
       <Col xs={12} lg={3}><Cards /></Col> */}
@@ -65,7 +139,7 @@ return(
     <Card className="p-3 card-design">
     <h5 className="card-title fw-bold">Reported Cases</h5>
         {/* <DoughnutChart /> */}
-        <Tables />
+        {/* <Tables /> */}
     </Card>
     </Col>
     </Row>
@@ -74,6 +148,31 @@ return(
     <Tables />
     </Col>  
     </Row> */}
+
+    {/* for call taker performance */}
+    {/* <Row className="mt-2 gy-3">
+    <Col xs={12} xl={7}>
+      <Card className="p-3 card-design">
+        <h5 className="card-title fw-bold"> Calltaker Performance </h5>
+        <Tables />
+      </Card>
+      </Col>
+      
+      <Col xs={12} xl={5}></Col>
+    </Row> */}
+
+    {/* to analyse call taker performance*/}
+  <Row className="mt-2 gy-3">
+    <Col xs={12} xl={7}>
+      <Card className="p-3 card-design">
+        <h5 className="card-title fw-bold"> Calls Taker Performance </h5>
+        <Tables />
+      </Card>
+      </Col>
+      
+      <Col xs={12} xl={5}></Col>
+    </Row>
+
     </Container>
     <Footer />
     </>
