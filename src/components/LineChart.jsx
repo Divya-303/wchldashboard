@@ -1,6 +1,5 @@
 import React from 'react';
 import Chart from 'chart.js/auto';
-
 import { Line } from 'react-chartjs-2';
 
 const LineChart = () => {
@@ -9,7 +8,7 @@ const LineChart = () => {
     labels: labels,
     datasets: [
       {
-        label: "Child Cases",
+        label: "Calls",
         backgroundColor: "rgb(68 134 219)",
         borderColor: "rgb(68 134 219)",
         data: [20, 10, 35, 5],
@@ -18,7 +17,7 @@ const LineChart = () => {
   };
   return (
     <div>
-    <Line data={data} height={300} />
+    <Line data={data} height={200} options={{ maintainAspectRatio: false }}/>
   </div>
   )
 }

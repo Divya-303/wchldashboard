@@ -21,8 +21,6 @@ function TableEntry() {
       } else {
         initial = name[0].charAt(0);
       }
-      console.log(name);
-      console.log(initial);
       return(
           <tr key={"row-"+i} className='table-row'>{
                 column.map((v, j)=>{return <td key={"col-"+j}>{data[v]}</td>})

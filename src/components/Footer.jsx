@@ -10,16 +10,17 @@ function Footer() {
         textAlign: "center",
         paddingTop: "15px",
         paddingBottom: "30px",
-        position: "fixed",
-        left: "0",
-        bottom: "0",
+        position: "absolute",
+        // left: "0",
+        // bottom: "0",
         height: "30px",
-        width: "100%"
+        width: "100%",
+        marginTop: "30px"
       };
   return (
-    <Container>
+    <Container fluid>
         <Row>
-          <Col style={stickyFooterStyle} sm={12}>
+          <Col style={stickyFooterStyle}>
             &copy; Copyright 2023 - 2024 | C-DAC |
             info@cdac.in  
             {/* <a

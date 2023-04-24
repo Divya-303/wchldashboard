@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faPhone, faEnvelope, faCommentSms, faTriangleExclamation} from '@fortawesome/free-solid-svg-icons';
 //import * as Icons from '@fortawesome/fontawesome-free-regular';
 import * as Icons from '@fortawesome/free-solid-svg-icons';
+import CurveChart from "../components/CurveChart";
 
 const Cards = (props) => {
     const { [props.icon]: Icon } = Icons;
@@ -22,7 +23,7 @@ const Cards = (props) => {
 
 
   return (
-    <Card className="border-end">
+    <Card className={props.type === 'Signals' ? 'border-end' : 'card-design'}>
          {/* <Card className="border-end" onMouseEnter={handleMouseEnter}
     onTransitionEnd={handleTransitionEnd}> */}
     <Card.Body>
@@ -35,14 +36,53 @@ const Cards = (props) => {
 
 
       <Container>
-    <Row>
-    <Col xs={12} xl={5} className='text-start rounded-circle bg-soft align-items-center'>
+      <Row className="gy-3">
+      {/* {props.type === 'Cases' && 
+      <>
+    <Col xs={12} xl={6} className='text-start'>
+    <FontAwesomeIcon className="icon-color" icon={Icon} size="3x"/>
+    </Col>
+    <Col xs={12} xl={6} className='text-end case-text'>
+            <h4 className='fw-bolder'>{props.count}</h4>
+            <h6 className='fw-bolder'>{props.name}</h6>
+    </Col>
+    </>
+    } */}
+    {/* </Row>
+    </Container>
+
+    <Container>
+    <Row className="gy-3"> */}
+    {props.type === 'Timer' && 
+      <>
+    <Col xs={12} xl={8} className="align-self-center"> 
+    <div className="timer-data">
+    <div className="text-center icon-width bg-light mt-0 mb-3 p-1 border border-light rounded-circle" style={{color: props.chart.backgroundColor}}>
+    <FontAwesomeIcon icon={Icon} />
+    </div>
+    <h3 className="mt-0 text-dark "> {props.count} </h3>
+    <h4 className="mt-0 header-title text-truncate"> {props.title} </h4>
+    <p className="text-muted mb-0 text-truncate"> {props.sub} </p>
+    </div>
+    </Col>
+    <Col xs={12} xl={4} className="align-self-center"> 
+        <CurveChart data={props.chart} />
+    </Col>
+    </>
+}
+
+{props.type === 'Signals' && 
+<>
+<Col xs={12} xl={5} className='text-start rounded-circle bg-soft align-items-center'>
     <FontAwesomeIcon className='pt-3 ms-2' icon={Icon} size="2xl" style={{color: props.color}} />
     </Col>
     <Col xs={12} xl={7} className='text-end align-items-center'>
             <h4 className='fw-bolder card-count'>{props.count}</h4>
             <h6 className='fw-bolder card-name'>{props.name}</h6>
     </Col>
+    </>
+}
+
     </Row>
 
     {/* edit starts */}

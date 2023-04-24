@@ -5,18 +5,21 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 //import cases from '../data/cases';
 import Col from 'react-bootstrap/Col';
-//import Cards from "../components/Cards";
+import Cards from "../components/Cards";
 import Card from 'react-bootstrap/Card';
 import DatePickerRange from "../components/DatePickerRange";
+import SelectBox from "../components/SelectBox";
+import calls from "../data/calls";
 // import Maps from "../components/Maps";
 import map from '../assets/images/india-map.png';
 // import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
 import DoughnutChart from "../components/DoughnutChart";
 // import PieChart from "../components/PieChart";
+import timer from "../data/timer";
+import ListGroups from "../components/ListGroups";
 import Tables from "../components/Tables";
 import Footer from "../components/Footer";
-import Cards from "../components/Cards";
 import signals from './../data/signals';
 import BarChart from "../components/BarChart";
 
@@ -27,18 +30,22 @@ return(
     <Header />
     {/* <SideMenu /> */}
 
-    <Container fluid className="bg-color">
+    <Container fluid className="page-container bg-color">
       
-      <Row className="mt-2 gy-2">
+      <Row className="mt-3 gy-3">
 
       <Col xl={5}>  {/*col2*/}
-      <Card className="p-2 card-design">
-      <div className="w-50 mb-2">
-      <h6 className="fw-bold">Cases Reported Between The Range: </h6>
-      {/* <DatePickerRange /> */}
-      </div>
-      </Card>
-          {/* <DoughnutChart /> */}
+      <Card className="p-3 card-design">
+      <h5 className="fw-bold title-text">Select Criteria to View Report</h5>
+      <Row className="gy-3"> 
+    <Col xs={12} xl={6}> 
+    <DatePickerRange />
+    </Col>
+    <Col xs={12} xl={6}> 
+    <SelectBox size="sm" option='Type of calls' call={calls}/>
+    </Col>
+    </Row>
+    </Card>
       </Col>
 
       <Col xl={7}>  {/*col3*/}
@@ -49,7 +56,8 @@ return(
             name={data.name}
             icon={data.icon}
             color={data.color}
-            count={data.count} />
+            count={data.count} 
+            type="Signals" />
           </Col>
         ))}
         </Row>
@@ -77,22 +85,24 @@ return(
 
     </Row> */}
 
-    <Row className="mt-2 gy-2">
+    <Row className="mt-3 gy-3">
         <>
     {/* {cases.map((data, index) => (
         <Col xs={12} sm={6} xl={3} key={data.id} className="col-case">
         <Cards key={data.id}
       name={data.name}
       count={data.count}
-      icon={data.icon} />
+      icon={data.icon} type={"Cases"} />
       </Col>
       ))} */}
       </>
+      {/* <div className="ms-auto w-50 mb-3">
+       </div> */}
 
       <Col xs={12} xl={9}>
       <Card className="p-2 card-design">
       <div className="mb-2">
-      <h6 className="fw-bold">All state Report: </h6>
+      <h5 className="fw-bold title-text">All state Report: </h5>
           <BarChart />
       </div>
       </Card>
@@ -102,9 +112,11 @@ return(
       <Col xs={12} xl={3}>  {/*col1*/}
       <Card className="p-2 card-design">
       <div className="mb-2">
-      <h6 className="fw-bold">Call Analytics: </h6>
+      <h5 className="fw-bold title-text">Call Analytics: </h5>
           <DoughnutChart />
       </div>
+      
+      
       </Card>
       </Col>
 
@@ -122,24 +134,47 @@ return(
       <Col xs={12} lg={3}><Cards /></Col> */}
     </Row>
     <Row className="mt-3 gy-3">
-    <Col xs={12} xl={6}>
-        <Card className="p-3 card-design">
-        <h5 className="card-title fw-bold">Cases Reported in 2024</h5>
+    <Col xs={12} xl={5}>
+        <Card className="p-3 card-design h-100">
+        <h5 className="fw-bold title-text">Cases Reported in 2024</h5>
         <img src={map} className="img-fluid rounded-start map-height" alt="Map Pic" />
         {/* <Maps /> */}
         </Card>
     </Col>
     <Col xs={12} xl={3}>
+    <Row className="gy-3"> 
+    <Col xl={12}> 
     <Card className="p-3 card-design">
-    <h5 className="card-title fw-bold">Cases Reported Month Wise</h5>
+    <h5 className="fw-bold title-text">(State) Calls reported </h5>
         <LineChart />
     </Card>
     </Col>
-    <Col xs={12} xl={3}>
-    <Card className="p-3 card-design">
-    <h5 className="card-title fw-bold">Reported Cases</h5>
+    <Col xl={12}> 
+    <Cards key={2}
+      icon = {"faPhone"}
+      count={"0m:27s"}
+      title={"Avg. Speed Of Answer"}
+      sub={"Call answered avg. speed (time period)"} 
+      chart={timer[0]}
+      type={"Timer"} />
+    </Col>
+    <Col xl={12}> 
+    <Cards key={2}
+      icon = {"faClock"}
+      count={"4m:30s"}
+      title={"Avg. Time Taken To Close The Call"}
+      sub={"Avg. time taken to close the call (time period)"} 
+      chart={timer[1]}
+      type={"Timer"} />
+    </Col>
+    </Row>
+    </Col>
+    <Col xs={12} xl={4}>
+    <Card className="p-3 card-design h-100">
+    <h5 className="fw-bold title-text">Category of Cases</h5>
         {/* <DoughnutChart /> */}
         {/* <Tables /> */}
+        <ListGroups />
     </Card>
     </Col>
     </Row>
@@ -162,10 +197,10 @@ return(
     </Row> */}
 
     {/* to analyse call taker performance*/}
-  <Row className="mt-2 gy-3">
+  <Row className="mt-3 gy-3">
     <Col xs={12} xl={7}>
       <Card className="p-3 card-design">
-        <h5 className="card-title fw-bold"> Calls Taker Performance </h5>
+        <h5 className="fw-bold title-text"> Calls Taker Performance </h5>
         <Tables />
       </Card>
       </Col>

@@ -1,5 +1,6 @@
 body{
   font-family: 'Roboto';
+  font-size: 14px;
 }
 
 /* .App {
@@ -66,10 +67,11 @@ body{
   padding-left: 40px;
 }
 
-/* .bg-color {
-  background-color: #f1faff;
-  min-height: calc(100vh-30px);
-} */
+.page-container {
+  /* background-color: #f1faff; */
+  min-height: calc(100vh - 100px);
+  position: relative;
+}
 
 /* Navbar */
 /* 
@@ -94,7 +96,7 @@ body{
   /* background: url(../src/assets/images/bg-image-nav.jpg) no-repeat 0 50%; */
   background-image: url(../src/assets/images/bg-image-nav.jpg);
   background-size: cover;
-  opacity: 0.9;
+  /* opacity: 0.9; */
 }
 
 .nav-heading {
@@ -132,25 +134,51 @@ body{
 
 /* Card */
 .card-design {
-  box-shadow: 3px 3px 9px 5px rgb(169 184 200 / 23%) !important;
-  -webkit-box-shadow: 3px 3px 9px 5px rgba(169,184,200,.15);
-  height: 100%;
+  box-shadow: 3px 3px 9px 3px #95d2df40 !important;
+  -webkit-box-shadow: 3px 3px 9px 3px #95d2df40;
+  /* height: 100%; */
   border: none;
-  padding: 1rem 1rem 0 !important;
-  
+}
+
+.timer-data h3 {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.header-title, .title-text {
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 0;
+    color: #303e67;
+    text-shadow: 0 0 1px rgba(241,245,250,0.1);
+    font-family: "Roboto",sans-serif;
+}
+
+.timer-data p {
+    line-height: 1.6;
+    font-family: "Roboto",sans-serif;
+    font-size: .845rem;
+    font-weight: 400;
 }
 
 /* Date range picker */
 .date-range-input {
   background: url("../src/assets/images/calender.png") no-repeat left;
   background-size: 30px;
+  padding-left: 35px;
+}
+
+.form-width {
   height: 35px;
 }
 
 /* Map */
-.map-height {
+/* .map-height {
   height: 60vh;
-}
+} */
 .leaflet-container {
   width: 100%;
   height: 60vh;
@@ -159,6 +187,9 @@ body{
 /* Chart */
 /* .height-adjust{
   height: 300px;
+} */
+/* .chart-style {
+  height: 60vh;
 } */
 
 /* for table */
@@ -176,7 +207,7 @@ body{
 }
 .cases-link {
  text-decoration: none;
-color: rgb(106 119 141);
+color: #226ab1;
 font-size: smaller;
 }
 tr.table-row:hover {
@@ -184,9 +215,49 @@ tr.table-row:hover {
   box-shadow: rgb(185 221 237) 0px 30px 60px -12px inset, rgb(198 208 233) 0px 18px 36px -18px inset;
 }
 a.cases-link:hover {
-  color: #034ef7;
+  color: #007eff;
 }
 
+/* For List Group */
+.list-group-style .list-group-item {
+  border-style: dashed;
+}
+.list-group-style .list-group-item:nth-child(1) {
+  border: none;
+}
+.badge-soft-bg {
+background-color: #27caef !important;
+}
+.case-title {
+  color: #303e67;
+}
+.case-img {
+  width: 40px;
+  height: 40px;
+}
+.bg-report, .bg-resolve {
+  color:#fff;
+}
+.bg-report {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: rgb(253 0 0 / 65%);
+}
+.bg-resolve {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(18 167 18 / 65%);
+}
+.list-group-item:not(:nth-child(1)) .bg-report:hover, .list-group-item:not(:nth-child(1)) .bg-resolve:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+.list-group-item:not(:nth-child(1)) .bg-report:hover, .list-group-item:not(:nth-child(1)) .bg-report:focus, .list-group-item:not(:nth-child(1)) .bg-report:active {
+  background-color: rgb(253 0 0 / 90%);
+}
+.list-group-item:not(:nth-child(1)) .bg-resolve:hover, .list-group-item:not(:nth-child(1)) .bg-resolve:focus, .list-group-item:not(:nth-child(1)) .bg-resolve:active {
+  background-color: rgb(18 167 18 / 90%);
+}
 /* for signal card */
 .card-name {
   font-size: small;
@@ -238,7 +309,3 @@ border-bottom: 3px solid #fd3c97 !important;
 border-bottom: 3px solid #ffb822 !important;
 }
 
-.d-chart {
-  /* width: 380; */
-  border-width: 2;
-}

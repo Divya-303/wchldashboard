@@ -41,7 +41,7 @@ const DatePickerRange = () => {
         initialSettings={{ startDate: '01/01/2023', endDate: '12/04/2023', ranges: ranges }}>
         <Form.Control
           type="text"
-          className='date-range-input text-center'
+          className='form-width date-range-input text-center'
         />     
       </DateRangePicker>
     </div>
