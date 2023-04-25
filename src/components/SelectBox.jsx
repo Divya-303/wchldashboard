@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 const SelectBox = (props) => {
   return (
     <div> 
-    <Form.Select aria-label="Select Box" className="form-width">
+    <Form.Select aria-label="Select Box" className="form-width select-box">
     <option disabled>{props.option}</option>
     {props.call.map((data,index) => (
          <option key={index} value={data.code}>{data.type}</option>

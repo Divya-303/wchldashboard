@@ -30,7 +30,23 @@ const calltaker = [
         CallsAnswered: "24",
         AvgSpeedOfAns: "3.06 sec",
         Adherence: "90%"
-    }
+    },
+    { 
+        NameIcon: "",
+        ID: "Lucy",
+        TotalCalls: "18",
+        CallsAnswered: "13",
+        AvgSpeedOfAns: "4.16 sec",
+        Adherence: "79%"
+    },
+    { 
+        NameIcon: "",
+        ID: "Peterson",
+        TotalCalls: "44",
+        CallsAnswered: "36",
+        AvgSpeedOfAns: "2.89 sec",
+        Adherence: "83%"
+    },
 ]
 
 export default calltaker;

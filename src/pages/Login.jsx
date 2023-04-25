@@ -106,7 +106,7 @@ return(
             <label className="form-check-label" htmlFor="rememberCheck">Remember me</label>
           </div> */}
           <div className="d-grid">
-          <Button variant="primary" type="submit">
+          <Button className="btn-style" variant="primary" type="submit">
         Login
         </Button>
             {/* <button type="submit" className="btn btn-primary">Login</button> */}

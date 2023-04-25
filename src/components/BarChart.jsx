@@ -58,7 +58,7 @@ const BarChart = () => {
 
   return (
     <div>
-        <Bar data={data}  height={280}
+        <Bar data={data}  height={215}
         options={options} />
         {/* height={600} width={500} height={300} */}
     </div>

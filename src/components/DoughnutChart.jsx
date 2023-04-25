@@ -5,7 +5,7 @@ import { Doughnut } from 'react-chartjs-2';
 const DoughnutChart = () => {
     const data = {
         labels: [
-          'Mere call info',
+          'Data gathering',
           'Councelling',
           'Psychological support',
           'Physical intervention',
@@ -13,12 +13,13 @@ const DoughnutChart = () => {
         ],
         datasets: [{
           label: 'Cases',
-          data: [100, 210, 30, 150],
+          data: [100, 210, 30, 150, 75],
           backgroundColor: [
             'rgb(52, 191, 163)',
             'rgb(93, 120, 255)',
             'rgb(253, 60, 151)',
-            'rgb(255, 159, 67)'
+            'rgb(255, 159, 67)',
+            'rgb(3 200 249)'
           ],
 
           // backgroundColor: [
@@ -47,7 +48,7 @@ const DoughnutChart = () => {
   
   return (
     <div>
-        <Doughnut data={data} 
+        <Doughnut data={data} height={210}
         options={option}/>
     </div>
   )

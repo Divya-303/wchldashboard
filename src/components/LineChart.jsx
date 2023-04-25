@@ -15,9 +15,18 @@ const LineChart = () => {
       },
     ],
   };
+
+const options = {
+  maintainAspectRatio: false,
+  scales: {
+    x: { grid: {display: false} },
+    y: { border:{dash: [4, 4]}, }
+  }
+}
+
   return (
     <div>
-    <Line data={data} height={200} options={{ maintainAspectRatio: false }}/>
+    <Line data={data} height={200} options={options}/>
   </div>
   )
 }
