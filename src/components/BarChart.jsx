@@ -36,22 +36,24 @@ const BarChart = () => {
     maintainAspectRatio: false,
     scales: {
         x: {
-          grid: {display: false}
+          grid: {display: false,}
           },
         y: {
           border:{dash: [4, 4]},
-          }
+          ticks: {maxTicksLimit: 5}, 
+          },
     },
     plugins: {
       tooltip: {
         enabled: true,
-      //   callbacks: {
-      //     title: "Arunachal",
-      //     label: "pradesh",
-      // },
-      // position: 'custom',
-       
-    }
+      },
+      legend:{
+        labels: {
+          // boxWidth: 3,
+          usePointStyle: true,
+          pointStyle: 'triangle'
+        }
+      }
   }  
 }
 

@@ -20,7 +20,20 @@ const options = {
   maintainAspectRatio: false,
   scales: {
     x: { grid: {display: false} },
-    y: { border:{dash: [4, 4]}, }
+    y: { 
+      border:{dash: [4, 4]},
+      ticks: {maxTicksLimit: 5}, 
+    }
+  },
+  plugins: {
+    legend: {
+      // position: '',
+      labels: {
+        // boxWidth: 10
+        usePointStyle: true,
+        pointStyle: 'triangle'
+      }
+    }
   }
 }
 

@@ -41,6 +41,13 @@ const DoughnutChart = () => {
           legend: {
             position: "right",
             align: "end",
+            labels: { 
+              usePointStyle: true,
+              pointStyle: 'triangle',
+              // pointStyle: 'rectRounded',
+              // pointStyle: 'rectRot',
+              // boxWidth: 3,
+            }
         }}
 
         
