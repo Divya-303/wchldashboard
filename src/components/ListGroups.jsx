@@ -1,6 +1,7 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
+import Image from "react-bootstrap/Image";
 import cases from '../data/cases';
 
 const ListGroups = () => {
@@ -11,7 +12,8 @@ const ListGroups = () => {
     const img = require(`../assets/images/child-cases/${data.image}.png`);
     return <ListGroup.Item key={i} className="d-flex justify-content-between align-items-start">
         <div className="ms-2 d-flex align-items-center">
-          <img src={img} alt="cases" className='case-img me-2'/>
+          {/* <img src={img} alt="cases" className='case-img me-2'/> */}
+          <Image src={img} alt="cases" className='case-img me-2' />  
           <div className="case-title fw-bold">{data.name}</div>
           {/* Cras justo odio */}
         </div>

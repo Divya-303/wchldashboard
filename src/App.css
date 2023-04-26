@@ -44,9 +44,13 @@ body{
 
 /* Login */
 
-.icon-width {
+.icon-style {
   width: 20%;
   font-size: 24px;
+}
+
+.icon-bg-color {
+  background-image: linear-gradient(#0dccea, #0d70ea);
 }
 
 .login-form {
@@ -226,12 +230,13 @@ body{
 
 /* for table */
 .table-head {
-  background-color: #eef6fb;
+  background-color: rgb(144 221 248 / 15%);
   color: #494242fd;
   font-size: 15px;
   font-family: math;
-  height: 50px;
-  
+  height: 55px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 3px #edfafec7;
 }
 .table-row {
   background-color: #fff;
@@ -250,7 +255,8 @@ font-size: smaller;
 }
 tr.table-row:hover {
   /* box-shadow: rgb(133 177 251 / 46%) 0px 30px 60px -12px inset, rgb(133 177 251 / 50%) 0px 18px 36px -18px inset; */
-  box-shadow: rgb(185 221 237) 0px 30px 60px -12px inset, rgb(198 208 233) 0px 18px 36px -18px inset;
+  /* box-shadow: rgb(185 221 237) 0px 30px 60px -12px inset, rgb(198 208 233) 0px 18px 36px -18px inset; */
+  box-shadow: rgb(211 253 255 / 31%) 0px 30px 60px -12px inset, rgb(233 239 255 / 72%) 0px 18px 36px -18px inset;
 }
 a.cases-link:hover {
   color: #007eff;

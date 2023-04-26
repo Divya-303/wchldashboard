@@ -13,6 +13,7 @@ import SelectBox from "../components/SelectBox";
 import Button from 'react-bootstrap/Button';
 import calls from "../data/calls";
 // import Maps from "../components/Maps";
+import Image from "react-bootstrap/Image";
 import map from '../assets/images/india-map.png';
 // import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
@@ -23,10 +24,20 @@ import ListGroups from "../components/ListGroups";
 import Tables from "../components/Tables";
 import Footer from "../components/Footer";
 import signals from './../data/signals';
+import services from "../data/services";
 import BarChart from "../components/BarChart";
-
+import states from "../data/states";
 
 const Dashboard = () => {
+    const selectedValue = val => {
+       console.log(val);
+       let isService;
+       if(val === 'c03') {
+        isService = true;
+       } else {
+        isService = false;
+       }
+    }
 return(
     <>
     <Header />
@@ -46,7 +57,7 @@ return(
     </Col>
     <Col xl={12} className="mb-2"> 
     <Form.Label>Type of Calls</Form.Label>
-    <SelectBox  size="sm" option='Type of calls' call={calls}/>
+    <SelectBox  size="sm" type="calls" option='Type of calls' call={calls} getValue={selectedValue}/>
     </Col>
     <Col xl={12} className="mb-2"> 
     <Button className="btn-sm float-end btn-style" variant="primary" type="submit">
@@ -61,7 +72,7 @@ return(
       <Card className="p-3 card-design">
       <div className="mb-2">
       <h5 className="fw-bold title-text">All state Report: </h5>
-          <BarChart />
+          <BarChart state={states}/>
       </div>
       </Card>
 
@@ -108,7 +119,8 @@ return(
 <Col xs={12} xl={5}>
         <Card className="p-3 card-design">
         <h5 className="fw-bold title-text">Cases Reported in 2024</h5>
-        <img src={map} className="img-fluid rounded-start img-map" alt="Map Pic" />
+        {/* <img src={map} className="img-fluid rounded-start img-map" alt="Map Pic" /> */}
+        <Image src={map} className="img-fluid rounded-start img-map" alt="Map Pic" />  
         {/* <Maps /> */}
         </Card>
     </Col>
@@ -182,7 +194,14 @@ return(
     <Row className="mt-3 gy-3">
     <Col xs={12} xl={4}>
     <Card className="p-3 card-design h-100">
+    {/* <Row className="gy-3"> */}
+    {/* <Col xs={12} xl={6}> */}
     <h5 className="fw-bold title-text mb-3">Category of Cases</h5>
+    {/* </Col> */}
+    {/* <Col xs={12} xl={6}>
+        <SelectBox  size="sm" type="services" option='Select Services' call={services}/>
+    </Col> */}
+    {/* </Row> */}
         {/* <DoughnutChart /> */}
         {/* <Tables /> */}
         <ListGroups />

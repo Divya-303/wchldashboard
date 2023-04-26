@@ -9,8 +9,8 @@ const LineChart = () => {
     datasets: [
       {
         label: "Calls",
-        backgroundColor: "rgb(68 134 219)",
-        borderColor: "rgb(68 134 219)",
+        backgroundColor: "rgb(13 98 239)",
+        borderColor: "rgb(13 98 239)",
         data: [20, 10, 35, 5],
       },
     ],

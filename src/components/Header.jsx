@@ -5,18 +5,20 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Image from "react-bootstrap/Image";
 import logopic from '../assets/images/wcdlogo.webp';
 
 const Header = () => {
   return (
     <Navbar expand="false">
        
-         <Navbar.Brand href="/dashboard">   
-      <img
+         <Navbar.Brand href="/dashboard"> 
+         <Image src={logopic} alt="WCHL Logo" />  
+      {/* <img
               src={logopic}
-              className="d-inline-block align-top"
+              
               alt="WCHL Logo"
-            />
+            /> */}
       </Navbar.Brand>
 
       {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}

@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Image from "react-bootstrap/Image";
 import loginPic from '../assets/images/login-side.jpg';
 import { useNavigate, Link } from "react-router-dom";
 // import validate from './ValidationRules';
@@ -68,7 +69,7 @@ return(
     <Col xs={12} xl={5}>
       <div className="mx-auto login-form">
         <form onSubmit={handleSubmit} noValidate>
-          <div className="text-center text-light icon-width bg-primary p-2 border border-light rounded-circle mx-auto">
+          <div className="text-center text-light icon-style icon-bg-color p-2 border border-light rounded-circle mx-auto">
             <i className="fa fa-lock" />
           </div>
           <h3 className="text-center">Login</h3>
@@ -121,7 +122,8 @@ return(
       </div>
     </Col>
     <Col xs={12} xl={6}>
-      <img src={loginPic} className="img-fluid rounded-start" alt="Login Side" />
+    <Image src={loginPic} className="img-fluid rounded-start" alt="Login Side" />  
+      {/* <img src={loginPic} className="img-fluid rounded-start" alt="Login Side" /> */}
     </Col>
   </Row>
 </Container>

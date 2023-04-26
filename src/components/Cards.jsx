@@ -57,7 +57,7 @@ const Cards = (props) => {
       <>
     <Col xs={12} xl={8} className="align-self-center"> 
     <div className="timer-data">
-    <div className="text-center icon-width bg-light mt-0 mb-3 p-1 border border-light rounded-circle" style={{color: props.chart.backgroundColor}}>
+    <div className="text-center icon-style bg-light mt-0 mb-3 p-1 border border-light rounded-circle" style={{color: props.chart.backgroundColor}}>
     <FontAwesomeIcon icon={Icon} />
     </div>
     <h3 className="mt-0 text-dark "> {props.count} </h3>
