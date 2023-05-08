@@ -1,51 +1,51 @@
 const calltaker = [
     { 
-        NameIcon: "",
-        ID: "Ruth John",
+        ID: 1,
+        Name: "Ruth John",
         TotalCalls: "50",
         CallsAnswered: "47",
         AvgSpeedOfAns: "3.12 sec",
-        Adherence: "80%"
+        Adherence: 80
     },
     { 
-        NameIcon: "",
-        ID: "Donald",
+        ID: 2,
+        Name: "Donald",
         TotalCalls: "38",
         CallsAnswered: "33",
         AvgSpeedOfAns: "2.85 sec",
-        Adherence: "73%"
+        Adherence: 73
     },
     { 
-        NameIcon: "",
-        ID: "Nicholas",
+        ID: 3,
+        Name: "Nicholas",
         TotalCalls: "42",
         CallsAnswered: "31",
         AvgSpeedOfAns: "5.63 sec",
-        Adherence: "88%"
+        Adherence: 88
     },
     { 
-        NameIcon: "",
-        ID: "Leah",
+        ID: 4,
+        Name: "Leah",
         TotalCalls: "25",
         CallsAnswered: "24",
         AvgSpeedOfAns: "3.06 sec",
-        Adherence: "90%"
+        Adherence: 90
     },
     { 
-        NameIcon: "",
-        ID: "Lucy",
+        ID: 5,
+        Name: "Lucy",
         TotalCalls: "18",
         CallsAnswered: "13",
         AvgSpeedOfAns: "4.16 sec",
-        Adherence: "79%"
+        Adherence: 79
     },
     { 
-        NameIcon: "",
-        ID: "Peterson",
+        ID: 6,
+        Name: "Peterson",
         TotalCalls: "44",
         CallsAnswered: "36",
         AvgSpeedOfAns: "2.89 sec",
-        Adherence: "83%"
+        Adherence: 83
     },
 ]
 

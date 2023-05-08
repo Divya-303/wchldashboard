@@ -27,6 +27,8 @@ import signals from './../data/signals';
 import services from "../data/services";
 import BarChart from "../components/BarChart";
 import states from "../data/states";
+import RadialChart from "../components/RadialChart";
+import Timeline from "../components/Timeline";
 
 const Dashboard = () => {
     const selectedValue = val => {
@@ -47,7 +49,7 @@ return(
       
       <Row className="mt-3 gy-3">
 
-      <Col xs={12} xl={3}>  
+      <Col xs={12} xl={2}>  
       <Card className="p-3 card-design">
       <h5 className="fw-bold title-text mb-3">Select Criteria to View Report</h5>
       <Row className="gy-3"> 
@@ -68,7 +70,7 @@ return(
     </Card>
       </Col>
 
-      <Col xs={12} xl={9}>
+      <Col xs={12} xl={10}>
       <Card className="p-3 card-design">
       <div className="mb-2">
       <h5 className="fw-bold title-text">All state Report: </h5>
@@ -192,7 +194,7 @@ return(
       <Col xs={12} lg={3}><Cards /></Col> */}
     </Row>
     <Row className="mt-3 gy-3">
-    <Col xs={12} xl={4}>
+    <Col xs={12} xl={3}>
     <Card className="p-3 card-design h-100">
     {/* <Row className="gy-3"> */}
     {/* <Col xs={12} xl={6}> */}
@@ -208,12 +210,25 @@ return(
     </Card>
     </Col>
     {/* to analyse call taker performance*/}
-    <Col xs={12} xl={8}>
+    <Col xs={12} xl={6}>
       <Card className="p-3 card-design h-100">
         <h5 className="fw-bold title-text mb-3"> Calls Taker Performance </h5>
         <Tables />
       </Card>
       </Col>
+
+{/* new edits-ASHNA- */}
+    <Col xs={12} xl={3}>
+      <Card className="p-3 card-design h-100">
+        <h5 className="fw-bold title-text mb-3"> Latest Activity </h5>
+        {/* <RadialChart /> */}
+        <Timeline />
+      <div> 
+
+      </div>
+      </Card>
+    </Col>
+
     </Row>
     {/* <Row className="mt-3">
     <Col>

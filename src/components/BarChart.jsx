@@ -19,8 +19,7 @@ const BarChart = (props) => {
         borderWidth: 1.3,
         borderColor: '#FFFFFF',
         borderRadius: 4,
-        // borderSkipped: "right",
-        data: [40, 10, 35, 5, 18, 41, 23, 22, 10, 31, 6, 28, 33, 70, 28, 39, 14, 25, 65, 24, 5, 37, 16, 28, 44, 29, 11, 25, 10, 49, 12, 40, 38, 22, 57, 38, 12]
+        data: [40, 10, 35, 5, 18, 41, 23, 22, 10, 31, 6, 28, 33, 70, 28, 39, 14, 25, 65, 24, 5, 37, 16, 28, 44, 29, 11, 25, 10, 49, 12, 40, 38, 22, 57, 38]
       },
       {
         label: "Resolved Cases",
@@ -29,8 +28,7 @@ const BarChart = (props) => {
         borderWidth: 1.3,
         borderColor: '#FFFFFF',
         borderRadius: 4,
-        // borderSkipped: "left",
-        data: [21, 3, 18, 5, 10, 28, 16, 8, 5, 11, 6, 17, 22, 58, 25, 34, 10, 20, 57, 16, 3, 21, 7, 13, 39, 19, 9, 21, 4, 33, 8, 38, 20, 37, 52, 47, 29]
+        data: [21, 3, 18, 5, 10, 28, 16, 8, 5, 11, 6, 17, 22, 58, 25, 34, 10, 20, 57, 16, 3, 21, 7, 13, 39, 19, 9, 21, 4, 33, 8, 38, 20, 37, 52, 47]
       }
     ],
    
@@ -40,7 +38,8 @@ const BarChart = (props) => {
     maintainAspectRatio: false,
     scales: {
         x: {
-          grid: {display: false,}
+          
+          grid: {display: false},
           },
         y: {
           border:{dash: [4, 4]},
@@ -50,23 +49,29 @@ const BarChart = (props) => {
     plugins: {
       tooltip: {
         enabled: true,
-      //   callbacks: {
-      //     [
-      //     {
-      //       title: "Arunachal Pradesh",
-      //     label: "AR"
-      //   }
-      //   ]
-      // },
-      // position: 'custom',
+        backgroundColor: "rgba(60, 151, 204, 0.137)",
+        titleColor: "#000000",
+        titleSpacing: 3,
+        titleMarginBottom: 10,
+        // borderColor: "#000000",
+        // borderWidth: 1,
+        borderWidth: 2,
+        bodyColor: "#000000",
+        yAlign: "bottom",
+        xAlign: "left",
         callbacks: {
             title: function(tooltipItem) {
                 for (let state of props.state) {
                   if (state.shortCode === tooltipItem[0].label) {
                     return state.stateName;
-              }
-              }
-            }
+                  }
+                }
+            },
+          //   labelColor: function(tooltipItem, chart) {
+          //     return {
+          //         backgroundColor: '#6d88f9'
+          //     }
+          // },
         }
     },
     legend:{

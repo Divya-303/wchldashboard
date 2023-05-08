@@ -5,8 +5,7 @@ import { Doughnut } from 'react-chartjs-2';
 const DoughnutChart = () => {
     const data = {
         labels: [
-          'Data gathering',
-          'Councelling',
+          'Information gathering', 'Councelling',
           'Psychological support',
           'Physical intervention',
           'DCPU'

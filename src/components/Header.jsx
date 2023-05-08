@@ -6,14 +6,31 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from "react-bootstrap/Image";
-import logopic from '../assets/images/wcdlogo.webp';
+import logopic from '../assets/images/logo2.webp';
+import logotext from '../assets/images/logo-text.png';
 
 const Header = () => {
   return (
     <Navbar expand="false">
        
+      {/* copy starts */}
+      {/* <div class="container">
+  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">Hello World</div>
+  </div>
+  </div> */}
+
          <Navbar.Brand href="/dashboard"> 
-         <Image src={logopic} alt="WCHL Logo" />  
+          <Container className='logo-container'>
+          <Image src={logopic} alt="WCHL Logo" className='logo'/>  
+          <div className='overlay'>
+            
+            <Image src={logotext} alt="WCHL Logo expanded" className='logotext'/> 
+         
+          </div>
+          </Container>
+         
       {/* <img
               src={logopic}
               
@@ -23,7 +40,7 @@ const Header = () => {
 
       {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
       <Container fluid>
-      <h3 className="mx-auto nav-heading fw-bold">Dashboard</h3>
+      <h4 className=" nav-heading fw-bold">Dashboard</h4>
       {/* <Form className="d-flex">
             <Form.Control
               type="search"

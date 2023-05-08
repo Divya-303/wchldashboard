@@ -2,6 +2,7 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 // import cases from './../../src/data/cases.js';
 import calltakers from './../data/calltaker.js';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 
@@ -11,21 +12,34 @@ function TableEntry() {
 
   const column = Object.keys(calltakers[0]);
 
-
+console.log(column);
   const TDData =() =>{
     return calltakers.map((data, i)=>{
-      var name = data.ID.split(" ");
+      var name = data.Name.split(" ");
       var initial ;
       if (name[1]!== undefined) {
         initial = name[0].charAt(0) + name[1].charAt(0);
       } else {
         initial = name[0].charAt(0);
       }
+      console.log(initial);
       return(
-          <tr key={"row-"+i} className='table-row'>{
-                column.map((v, j)=>{return <td key={"col-"+j}>{data[v]}</td>})
+        <tr key={"row-"+i} className='table-row'>{
+        column.map((v, j)=>{console.log(v);  return  <>
+          { v !== 'ID' && 
+              <td key={"col-"+j}>
+                  { (v === 'Name' && 
+                    <div className="avatar-box thumb-sm align-self-center me-2">
+                    <span className="avatar-title bg-soft-pink rounded-circle">{initial}</span> </div>)
+                  }
+
+{/* new edits */}
+                  {v === 'Adherence' ? data[v]+ '%' : data[v]}
+                  { (v === 'Adherence' && <div className='progress-Info'> <ProgressBar now={data[v]} isChild="false"/> </div> ) } 
+              </td>
+          }
+                  </>})
               } 
-              {/* <a href='' link=''> <FontAwesomeIcon icon={faCircleCheck} size="sm" style={{color: "#3974db",}} /></a> */}
           </tr> 
       )
     })
@@ -39,12 +53,11 @@ function TableEntry() {
       <thead className='table-head'>
       {/* <tr>{THData()}</tr> */}
         <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Total Calls</th>
-          <th>Calls Answered</th>
-          <th>Avg.Speed of answer</th>
-          <th>Adherence %</th>
+          <th>NAME</th>
+          <th>TOTAL CALLS</th>
+          <th>CALLS ANSWERED</th>
+          <th>AVG. SPEED OF ANSWER</th>
+          <th>ADHERENCE %</th>
         </tr>
       </thead>
         <tbody>
