@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from "react-bootstrap/Image";
-import logopic from '../assets/images/logo2.webp';
+import logopic from '../assets/images/logo.webp';
 import logotext from '../assets/images/logo-text.png';
 
 const Header = () => {
@@ -24,6 +24,7 @@ const Header = () => {
          <Navbar.Brand href="/dashboard"> 
           <Container className='logo-container'>
           <Image src={logopic} alt="WCHL Logo" className='logo'/>  
+          {/* d-inline-block align-top */}
           <div className='overlay'>
             
             <Image src={logotext} alt="WCHL Logo expanded" className='logotext'/> 
@@ -67,6 +68,46 @@ const Header = () => {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse> */}
+       {/* <Nav className="me-auto">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-list-4">
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="abc" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <Image src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle" />
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="d">Dashboard</a>
+          <a class="dropdown-item" href="e">Edit Profile</a>
+          <a class="dropdown-item" href="l">Log Out</a>
+        </div>
+      </li>   
+    </ul>
+  </div>
+  </Nav> */}
+
+{/* <Nav pullRight className="me-auto">
+            <NavDropdown eventKey={1} 
+                title={
+                    <div className="pull-left">
+                        <img className="thumbnail-image" 
+                            src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                            alt="user pic"
+                        />
+                        Divya
+                    </div>
+                } 
+                id="basic-nav-dropdown">
+
+                <NavDropdown.Item eventKey={1.1} href="/profile">Profile</NavDropdown.Item>
+                <NavDropdown.Item divider />
+                <NavDropdown.Item eventKey={1.3}>
+                    <i className="fa fa-sign-out"></i> Logout
+                </NavDropdown.Item>
+            </NavDropdown>
+        </Nav> */}
     </Container>
   </Navbar>
   )

@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Image from "react-bootstrap/Image";
-import loginPic from '../assets/images/login-side.jpg';
+import loginPic from '../assets/images/login-side.webp';
 import { useNavigate, Link } from "react-router-dom";
 // import validate from './ValidationRules';
 

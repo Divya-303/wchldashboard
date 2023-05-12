@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 // import SideMenu from "../components/SideMenu";
 import Container from 'react-bootstrap/Container';
@@ -14,7 +14,7 @@ import Button from 'react-bootstrap/Button';
 import calls from "../data/calls";
 // import Maps from "../components/Maps";
 import Image from "react-bootstrap/Image";
-import map from '../assets/images/india-map.png';
+import map from '../assets/images/india-map.webp';
 // import BarChart from "../components/BarChart";
 import LineChart from "../components/LineChart";
 import DoughnutChart from "../components/DoughnutChart";
@@ -31,14 +31,9 @@ import RadialChart from "../components/RadialChart";
 import Timeline from "../components/Timeline";
 
 const Dashboard = () => {
-    const selectedValue = val => {
-       console.log(val);
-       let isService;
-       if(val === 'c03') {
-        isService = true;
-       } else {
-        isService = false;
-       }
+  const [service, setServive] = useState(false);
+  const selectedValue = val => {
+       val === 'c03' ? setServive(true) : setServive(false);
     }
 return(
     <>
@@ -196,14 +191,16 @@ return(
     <Row className="mt-3 gy-3">
     <Col xs={12} xl={3}>
     <Card className="p-3 card-design h-100">
-    {/* <Row className="gy-3"> */}
-    {/* <Col xs={12} xl={6}> */}
+    <Row className="gy-3">
+    <Col xs={12} xl={6}>
     <h5 className="fw-bold title-text mb-3">Category of Cases</h5>
-    {/* </Col> */}
-    {/* <Col xs={12} xl={6}>
+    </Col>
+    {service === true  && 
+        <Col xs={12} xl={6} className="mb-2">
         <SelectBox  size="sm" type="services" option='Select Services' call={services}/>
-    </Col> */}
-    {/* </Row> */}
+        </Col>
+    }
+    </Row>
         {/* <DoughnutChart /> */}
         {/* <Tables /> */}
         <ListGroups />

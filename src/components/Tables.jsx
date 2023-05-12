@@ -12,7 +12,6 @@ function TableEntry() {
 
   const column = Object.keys(calltakers[0]);
 
-console.log(column);
   const TDData =() =>{
     return calltakers.map((data, i)=>{
       var name = data.Name.split(" ");
@@ -22,10 +21,9 @@ console.log(column);
       } else {
         initial = name[0].charAt(0);
       }
-      console.log(initial);
       return(
         <tr key={"row-"+i} className='table-row'>{
-        column.map((v, j)=>{console.log(v);  return  <>
+        column.map((v, j)=>{ return <>
           { v !== 'ID' && 
               <td key={"col-"+j}>
                   { (v === 'Name' && 

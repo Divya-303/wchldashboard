@@ -3,6 +3,9 @@ import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 
 const CurveChart = (props) => {
+    var color =  props.data.backgroundColor;
+    var rgba = color.split(')')[0] + "/" + 0.9 + ")";
+    console.log(rgba);
     const labels = ["January", "February", "March", "April"];
     const data = {
       labels: labels,
@@ -44,6 +47,9 @@ const CurveChart = (props) => {
         },
         maintainAspectRatio: false,
         plugins: {
+          tooltip: {
+            backgroundColor: rgba
+          },
         legend: {
             display: false
         }
