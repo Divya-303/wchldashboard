@@ -148,7 +148,7 @@ return(
       <Col xs={12} xl={6}> 
     <Card className="p-3 card-design">
     <h5 className="fw-bold title-text"> (State) Reported Calls </h5>
-        <LineChart />
+        <LineChart type='line' />
     </Card>
     </Col>
             </Row>
@@ -227,6 +227,21 @@ return(
     </Col>
 
     </Row>
+
+
+    <Row className="mt-3 gy-3">
+
+    <Col xs={12} xl={10}>
+      <Card className="p-3 card-design">
+        <div className="mb-2">
+        <h5 className="fw-bold title-text">All state Report: </h5>
+          <LineChart type='curve' state={states}/>
+        </div>
+      </Card>
+    </Col>
+    
+      </Row>
+
     {/* <Row className="mt-3">
     <Col>
     <Tables />
