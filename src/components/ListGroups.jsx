@@ -17,13 +17,14 @@ const ListGroups = () => {
     // console.log('fs new', filteredResult);
     // console.log('fs', filteredResult.slice(0,5));
     return filteredResult.slice(
-      (currentPage - 1) * 5,
-      (currentPage - 1) * 5 + 5
+      (currentPage - 1) * 6,
+      (currentPage - 1) * 6 + 6
     );
   }, [results, currentPage]);
 
   const caseList = () => {
     // console.log('fs', filtered);
+    // use filtered for pagination
   return filtered.map((data, i) => {
     const img = require(`../assets/images/child-cases/${data.image}.webp`);
     return <ListGroup.Item key={i} className="d-flex justify-content-between align-items-start">
@@ -68,9 +69,9 @@ const ListGroups = () => {
       </ListGroup.Item>
       {caseList()}
     </ListGroup>
-    <div className="d-flex flex-row justify-content-end pt-1 px-3">
+    <div className="d-flex flex-row justify-content-end pt-2 pb-0 px-3">
     <DataPagination total={cases.length}
-                    itemsPerPage={5}
+                    itemsPerPage={7}
                     currentPage={currentPage}
                     onPageChange={(page) => setCurrentPage(page) }/>
     </div>

@@ -61,7 +61,7 @@ const Cards = (props) => {
     <FontAwesomeIcon icon={Icon} />
     </div>
     <h3 className="mt-0 text-dark "> {props.count} </h3>
-    <h4 className="mt-0 header-title text-truncate"> {props.title} </h4>
+    <h4 className="mt-0 title-text text-truncate"> {props.title} </h4>
     <p className="text-muted mb-0 text-truncate"> {props.sub} </p>
     </div>
     </Col>

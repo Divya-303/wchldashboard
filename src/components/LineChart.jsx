@@ -155,13 +155,13 @@ const options2 = {
 }
 
   return (
-    <div>
+    <div style={{height:'200px'}}>
       {props.type === 'line' &&
           <Line data={data1} height={200} options={options1}/>
       }
 
       {props.type === 'curve' &&
-        <Line data={data2} height={200} options={options2}/>
+        <Line data={data2} height={200} options={options2} />
       }
 
   </div>

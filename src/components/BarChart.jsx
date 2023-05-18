@@ -33,7 +33,7 @@ const BarChart = (props) => {
     ],
    
   };
-
+  
   const options = {
     maintainAspectRatio: false,
     scales: {
@@ -80,14 +80,17 @@ const BarChart = (props) => {
         usePointStyle: true,
         pointStyle: 'triangle'
       }
-    }
+    },
+    animation: {
+      y: {from: 500}
+   }
   }
 }
 
 
   return (
-    <div>
-        <Bar data={data}  height={215}
+    <div style={{height:'228px'}}>
+        <Bar data={data}  height={228}
         options={options} />
         {/* height={600} width={500} height={300} */}
     </div>

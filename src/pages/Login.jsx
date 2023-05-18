@@ -54,7 +54,6 @@ const Login = () => {
         const account = users.find(user => user.email === email);
         console.log(account);
         if(account && account.password === password){
-            console.log(true);
             // localStorage.setItem("authenticated", true);
             setAuthenticated(true);
             navigate("/dashboard");

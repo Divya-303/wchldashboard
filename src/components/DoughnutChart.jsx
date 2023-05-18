@@ -108,7 +108,7 @@ const DoughnutChart = () => {
     }
   
   return (
-    <div>
+    <div style={{height:'250px'}}>
         <Doughnut data={data} height={210}
         options={option} plugins={[hoverLabel]}/>
     </div>
