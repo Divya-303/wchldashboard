@@ -4,7 +4,6 @@ import { Line } from 'react-chartjs-2';
 // import context from 'react-bootstrap/esm/AccordionContext';
 
 const LineChart = (props) => {
-
   // const divStyle = {
   //   height: props.height + 'px',
   // };
@@ -168,7 +167,7 @@ const options2 = {
       }
 
     {props.type === 'curve' &&
-      (<div style={{height:'200px'}} className='shadowParent'>
+      (<div style={{height:`${props.height + 'px'}`}} className='shadowParent'>
       <Line data={data2} height={200} options={options2} />
       </div>)
     }

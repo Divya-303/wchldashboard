@@ -163,14 +163,14 @@ const options2 = {
   return (
     <>
     {props.type === 'national' &&
-      (<div style={{height:`${props.height}`}}>
+      (<div style={{height:`${props.height + 'px'}`}}>
       <Bar data={data1}  height={228} options={options1} />
       </div>)
     }
 
     {props.type === 'statelevel' &&
       (<div className='chart-box'>
-        <div style={{height:`${props.height}`}} className='scroll-box'>
+        <div style={{height:`${props.height + 'px'}`}} className='scroll-box'>
           <div className='box'>
           <Bar data={data2}  height={450} width={444} options={options2} />
           </div>

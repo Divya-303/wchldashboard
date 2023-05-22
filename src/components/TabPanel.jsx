@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import BarChart from './BarChart';
-// import states from "../data/states";
+import states from "../data/states";
 import districts from '../data/districtsUP';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
