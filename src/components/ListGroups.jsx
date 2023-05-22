@@ -5,22 +5,28 @@ import Image from "react-bootstrap/Image";
 import cases from '../data/cases';
 import DataPagination from './DataPagination';
 
-const ListGroups = () => {
+const ListGroups = (props) => {
   // console.log('cases',cases.slice(0,5));
   // /${logo}
   // require(`../assets/images/login-side.jpg.png`).default
   const [results, setResults] = useState(cases);
   // setResults(cases);
   const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState('');
   const filtered = useMemo(() => {
+    if(props.type === "main-level") {
+      setPerPage(6);
+    } else {
+      setPerPage(5);
+    }
     var filteredResult = results;
     // console.log('fs new', filteredResult);
     // console.log('fs', filteredResult.slice(0,5));
     return filteredResult.slice(
-      (currentPage - 1) * 6,
-      (currentPage - 1) * 6 + 6
+      (currentPage - 1) * perPage,
+      (currentPage - 1) * perPage + perPage
     );
-  }, [results, currentPage]);
+  }, [props.type, results, currentPage, perPage]);
 
   const caseList = () => {
     // console.log('fs', filtered);
@@ -71,7 +77,7 @@ const ListGroups = () => {
     </ListGroup>
     <div className="d-flex flex-row justify-content-end pt-2 pb-0 px-3">
     <DataPagination total={cases.length}
-                    itemsPerPage={7}
+                    itemsPerPage={perPage}
                     currentPage={currentPage}
                     onPageChange={(page) => setCurrentPage(page) }/>
     </div>

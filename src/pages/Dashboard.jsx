@@ -31,35 +31,36 @@ import BarChart from "../components/BarChart";
 import states from "../data/states";
 import RadialChart from "../components/RadialChart";
 import Timeline from "../components/Timeline";
+import Nav from 'react-bootstrap/Nav';
 
 // Total Call Cards
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
+import { faBullhorn, faChartSimple, faMagnifyingGlassChart } from '@fortawesome/free-solid-svg-icons';
 
 import TabPanel from "../components/TabPanel";
 
 const Dashboard = () => {
   const [key, setKey] = useState('national_level');
-  const [service, setServive] = useState(false);
-  const selectedValue = val => {
-       val === 'c03' ? setServive(true) : setServive(false);
-    }
+  // const [service, setServive] = useState(false);
+  // const selectedValue = val => {
+  //      val === 'c03' ? setServive(true) : setServive(false);
+  //   }
 return(
     <>
     <Header />
     {/* <SideMenu /> */}
 
     <Container fluid className="page-container bg-color">
-      
-    <Tabs
+ 
+    <Tabs 
       activeKey={key}
       onSelect={(k) => setKey(k)}
-      className="my-4"
-    >
+      className="mt-4 main-tab">
+      {/* icon-tab */}
         {/* fill */}
-      <Tab eventKey='national_level' title="National Level Statistics">
-     
-    <Card className="p-3 card-design bg-group">
+        {/* <div><span className="font-icon"><FontAwesomeIcon icon={faCircleDot} /> </span><span className="icon-label">National Level Statistics</span></div> */}
+      <Tab eventKey='national_level' title={<span><FontAwesomeIcon className="pe-2" icon={faChartSimple} />National Level Statistics</span>}>
+      <Card className="p-3 pt-4 card-design bg-group">
       <Row className="gy-2">
 
 
@@ -139,7 +140,7 @@ return(
       title={"Avg. Speed Of Answer"}
       sub={"Call answered avg. speed (time period)"} 
       chart={timer[0]}
-      type={"Timer"} />
+      type="Timer" />
     </Col>
     <Col xs={12} xl={6}> 
     <Cards key={2}
@@ -148,13 +149,18 @@ return(
       title={"Avg. Time Taken To Close The Call"}
       sub={"Avg. time taken to close the call (time period)"} 
       chart={timer[1]}
-      type={"Timer"} />
+      type="Timer" />
     </Col>
             </Row>
             </Col>
 
-            <Col xl={12} className="pt-5"> 
-    <h5 className="text-center">Call response Time </h5>
+            <Col xl={12}> 
+    <Card className="mt-4 p-3 card-design">
+        {/* <div className="mb-2"> */}
+        <h5 className="fw-bold title-text">Call response Time </h5>
+          <LineChart type='curve' state={states} height="183"/>
+        {/* </div> */}
+      </Card>
       </Col>
 </Col>
 <Col xs={12} xl={4}>
@@ -163,15 +169,15 @@ return(
     <Col xs={12} xl={6}>
     <h5 className="fw-bold title-text mb-3">Category of Cases</h5>
     </Col>
-    {service === true  && 
+    {/* {service === true  && 
         <Col xs={12} xl={6} className="mb-2">
         <SelectBox  size="sm" type="services" option='Select Services' call={services}/>
         </Col>
-    }
+    } */}
     </Row>
         {/* <DoughnutChart /> */}
         {/* <Tables /> */}
-        <ListGroups />
+        <ListGroups type="main-level"/>
     </Card>
 </Col>
         </Row>
@@ -201,6 +207,7 @@ return(
       </Row>
 
       </Card> 
+
     </Tab>
     
     {/* for signal-cards */}
@@ -231,8 +238,8 @@ return(
       </> */}
       {/* <div className="ms-auto w-50 mb-3">
        </div> */}
- <Tab eventKey='state_level' title="State Level Statistics">
-<Card className="p-3 card-design bg-group">
+ <Tab eventKey='state_level' title={<span><FontAwesomeIcon className="pe-2" icon={faMagnifyingGlassChart} />State Level Statistics</span>}>
+<Card className="p-3 py-4 card-design bg-group">
       <Row className="gy-2">
 
 
@@ -249,7 +256,7 @@ return(
     </Col>
 
     <Col xs={12} xl={7}> 
-    <Card className="p-3 card-design map-details">
+    <Card className="p-3 card-design map-details h-100">
         {/* <h5 className="fw-bold title-text">Cases Reported in 2024</h5> */}
         {/* <Row className="gy-3">
         {signals.map((data, index) => (
@@ -373,18 +380,7 @@ return(
       <Col xs={12} xl={5}></Col>
     </Row> */}
 </Tabs>
-<Row className="mt-3 gy-3">
 
-    <Col xs={12} xl={10}>
-      <Card className="p-3 card-design">
-        <div className="mb-2">
-        <h5 className="fw-bold title-text">All state Report: </h5>
-          <LineChart type='curve' state={states}/>
-        </div>
-      </Card>
-    </Col>
-    
-      </Row>
     </Container>
     <Footer />
     </>

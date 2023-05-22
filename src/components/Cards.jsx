@@ -23,7 +23,7 @@ const Cards = (props) => {
 
 
   return (
-    <Card className={props.type === 'Signals' ? 'border-end' : 'card-design'}>
+    <Card className={props.type === "Signals" ? 'border-end' : 'card-design'}>
          {/* <Card className="border-end" onMouseEnter={handleMouseEnter}
     onTransitionEnd={handleTransitionEnd}> */}
     <Card.Body>
@@ -53,7 +53,7 @@ const Cards = (props) => {
 
     <Container>
     <Row className="gy-3"> */}
-    {props.type === 'Timer' && 
+    {props.type === "Timer" && 
       <>
     <Col xs={12} xl={8} className="align-self-center"> 
     <div className="timer-data">
@@ -71,7 +71,7 @@ const Cards = (props) => {
     </>
 }
 
-{props.type === 'Signals' && 
+{props.type === "Signals" && 
 <>
 <Col xs={12} xl={5} className='text-start rounded-circle bg-soft d-flex justify-content-center align-items-center'>
     <FontAwesomeIcon icon={Icon} size="2xl" style={{color: props.color}} />

@@ -70,13 +70,13 @@ const TabPanel = () => {
     </Row> */}
         {/* <DoughnutChart /> */}
         {/* <Tables /> */}
-        <ListGroups />
+        <ListGroups type="sub-level"/>
     </Card>
         </Col>
         <Col xs={12} xl={6}>
         <Card className="p-3 card-design">
       <div className="mb-2">
-      <h5 className="fw-bold title-text">Call Analytics </h5>
+      <h5 className="fw-bold title-text">Case Analytics </h5>
           <DoughnutChart />
       </div>
       
@@ -93,7 +93,7 @@ const TabPanel = () => {
         <Col xl={12}> 
     <Card className="p-3 card-design">
     <h5 className="fw-bold title-text">Reported Calls </h5>
-        <LineChart type='line' />
+        <LineChart type='line' height="200"/>
     </Card>
     </Col> 
 
@@ -124,7 +124,12 @@ const TabPanel = () => {
       </Tab>
 
       <Tab eventKey='call_response_time' title="Call Response Time">
-      <h5 className="text-center">Call response Time </h5>
+      <Card className="mt-4 p-3 card-design">
+        <div className="mb-2">
+        <h5 className="fw-bold title-text">Call response Time </h5>
+          <LineChart type='curve' state={states} height="250"/>
+        </div>
+      </Card>
         </Tab>
     
     </Tabs> 

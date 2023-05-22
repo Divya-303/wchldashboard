@@ -5,6 +5,11 @@ import { Line } from 'react-chartjs-2';
 
 const LineChart = (props) => {
 
+  // const divStyle = {
+  //   height: props.height + 'px',
+  // };
+
+
   var label2 = [];
   if(props.type === 'curve') {
     for (let state of props.state) {
@@ -155,11 +160,11 @@ const options2 = {
 }
 
   return (
-    <>
-    {props.type === 'line' &&
-      (<div style={{height:'200px'}}>
-      <Line data={data1} height={200} options={options1}/>
-      </div>)
+  <>
+      {props.type === 'line' &&
+      (<div style={{height:`${props.height + 'px'}`}}>
+          <Line data={data1} height={200} options={options1}/>
+          </div>)
       }
 
     {props.type === 'curve' &&

@@ -22,16 +22,16 @@ import NavLink from 'react-bootstrap/NavLink';
 import userpic from '../assets/images/user.webp';
 
 const Header = () => {
-  const [service, setServive] = useState(false);
-  const selectedValue = val => {
-       val === 'c03' ? setServive(true) : setServive(false);
-    }
+  // const [service, setServive] = useState(false);
+  // const selectedValue = val => {
+  //      val === 'c03' ? setServive(true) : setServive(false);
+  //   }
     // Set your color here
-const entering = (e) => {
-  console.log(e);
-  e.children[0].style.borderTopColor = 'green';
-  e.children[1].style.backgroundColor = 'green';
-};
+// const entering = (e) => {
+//   console.log(e);
+//   e.children[0].style.borderTopColor = 'green';
+//   e.children[1].style.backgroundColor = 'green';
+// };
   return (
     <Navbar expand="false">
        
@@ -158,7 +158,8 @@ const entering = (e) => {
           }
         >
           <div>
-    <SelectBox  size="sm" type="calls" option='Type of calls' call={calls} getValue={selectedValue}/>
+          {/* getValue={selectedValue} */}
+    <SelectBox  size="sm" type="calls" option='Type of calls' call={calls} />
     </div>
     </OverlayTrigger>
     </Col>
@@ -251,7 +252,7 @@ const entering = (e) => {
         </Row>
     </div>
         </Dropdown.Item>
-        <div class="separator my-2"></div>
+        <div class="separator my-1"></div>
         <Dropdown.Item>
            <span className="user-action">Profile Settings</span>
           </Dropdown.Item>

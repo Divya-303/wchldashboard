@@ -36,7 +36,7 @@ const DataPagination = ({
     if (totalPages === 0) return null;
 
   return (
-    <Pagination>
+    <Pagination className="pg-data">
     <Pagination.Prev
       onClick={() => onPageChange(currentPage - 1)}
       disabled={currentPage === 1}
