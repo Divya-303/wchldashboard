@@ -122,7 +122,8 @@ return(
       <Card className="p-3 card-design">
       <div className="mb-2">
       <h5 className="fw-bold title-text">All state Cases</h5>
-          <BarChart state={states}/>
+          {/* <BarChart state={states}/> */}
+          <BarChart state={states} type='national' height='228px'/>
       </div>
       </Card>
       </Col>

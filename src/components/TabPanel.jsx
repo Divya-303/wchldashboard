@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import BarChart from './BarChart';
-import states from "../data/states";
+// import states from "../data/states";
+import districts from '../data/districtsUP';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Cards from "../components/Cards";
@@ -24,28 +25,28 @@ const TabPanel = () => {
         {/* fill */}
       <Tab eventKey='total_cases' title="Total Cases">
       <Row className="gy-2">  
-      <Col xl={12}>
+      <Col xl={7}>
       <Card className="p-3 card-design">
       <div className="mb-2">
       <h5 className="fw-bold title-text">District</h5>
-          <BarChart state={states}/>
+          {/* <BarChart state={states}/>   */}
+          <BarChart state={districts} type='statelevel' className='scroll-box'/>  
       </div>
       </Card>
       </Col>
-      <Col xl={12}>
+      <Col xl={5}>
       <Card className="mt-3 p-3 card-design">
 <h5 className="fw-bold title-text">Signal</h5>
 <Row className="pt-1 gy-4">
-
         {signals.map((data, index) => (
-          <Col xs={12} sm={6} xl={3} key={data.id} className="col-case">
+          <div xs={6} sm={6} xl={3} key={data.id} className="col-case">
           <Cards key={data.id}
             name={data.name}
             icon={data.icon}
             color={data.color}
             count={data.count} 
             type="Signals" />
-          </Col>
+          </div>
         ))}
         </Row>
         </Card>

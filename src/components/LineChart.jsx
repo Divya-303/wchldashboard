@@ -155,16 +155,20 @@ const options2 = {
 }
 
   return (
-    <div style={{height:'200px'}}>
-      {props.type === 'line' &&
-          <Line data={data1} height={200} options={options1}/>
+    <>
+    {props.type === 'line' &&
+      (<div style={{height:'200px'}}>
+      <Line data={data1} height={200} options={options1}/>
+      </div>)
       }
 
-      {props.type === 'curve' &&
-        <Line data={data2} height={200} options={options2} />
-      }
-
-  </div>
+    {props.type === 'curve' &&
+      (<div style={{height:'200px'}} className='shadowParent'>
+      <Line data={data2} height={200} options={options2} />
+      </div>)
+    }
+    </>
+  
     
   )
 }
