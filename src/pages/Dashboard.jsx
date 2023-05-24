@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 // import SideMenu from "../components/SideMenu";
 import Tab from 'react-bootstrap/Tab';
@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 //import cases from '../data/cases';
 import Col from 'react-bootstrap/Col';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import Cards from "../components/Cards";
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
@@ -45,13 +47,81 @@ const Dashboard = () => {
   // const selectedValue = val => {
   //      val === 'c03' ? setServive(true) : setServive(false);
   //   }
+      // Set your tooltip color here
+// const entering = (e) => {
+//   console.log(e);
+//   e.children[0].style.borderTopColor = 'green';
+//   e.children[1].style.backgroundColor = 'green';
+// };
 return(
     <>
     <Header />
     {/* <SideMenu /> */}
 
     <Container fluid className="page-container bg-color">
- 
+  
+      <Row className="form-filter w-auto">
+        <Col xs={12} xl={6}>
+          {/* <Form.Label>Date Range</Form.Label> */}
+          <OverlayTrigger
+          key="bottom"
+          placement="bottom"
+          overlay={
+            <Tooltip className="form-tooltip-bottom">
+              <strong>Date Range</strong>.
+            </Tooltip>
+          }
+        >
+          <div>
+    <DatePickerRange />
+    </div>
+    </OverlayTrigger>
+    </Col>
+        <Col xs={12} xl={6}>
+          {/* <Form.Label>Type of Calls</Form.Label> */}
+          {/* show={true} */}
+          <OverlayTrigger 
+          key="bottom"
+          placement="bottom"
+          overlay={
+            <Tooltip className="form-tooltip-bottom" >
+              <strong>Type of Calls</strong>.
+            </Tooltip>
+          }
+        >
+          <div>
+          {/* getValue={selectedValue} */}
+    <SelectBox  size="sm" type="calls" option='Type of calls' call={calls} />
+    </div>
+    </OverlayTrigger>
+    </Col>
+        {/* <Col xs={12} xl={4} className='text-center'> 
+        <Form.Label>Age Range</Form.Label>
+        <OverlayTrigger
+          key="bottom"
+          placement="bottom"
+          overlay={
+            <Tooltip className="tooltip-bottom">
+              <strong>Age Range</strong>.
+            </Tooltip>
+          }
+        >
+          <Form>
+      <Form.Group as={Row}>
+        <Col xs="9">
+      <Form.Range max={100}
+            min={0} step="1" value={val}
+            onChange={e => setVal(e.target.value)} />
+            </Col>
+        <Col xs="3">
+          <Form.Control value={val}/>
+        </Col>
+        </Form.Group>
+            </Form>
+    </OverlayTrigger>
+      </Col> */}
+      </Row>
+
     <Tabs 
       activeKey={key}
       onSelect={(k) => setKey(k)}
@@ -60,7 +130,7 @@ return(
         {/* fill */}
         {/* <div><span className="font-icon"><FontAwesomeIcon icon={faCircleDot} /> </span><span className="icon-label">National Level Statistics</span></div> */}
       <Tab eventKey='national_level' title={<span><FontAwesomeIcon className="pe-2" icon={faChartSimple} />National Level Statistics</span>}>
-      <Card className="p-3 pt-4 card-design bg-group">
+      <Card className="p-3 pt-4 card-design bg-group-main">
       <Row className="gy-2">
 
 
@@ -164,7 +234,7 @@ return(
       </Col>
 </Col>
 <Col xs={12} xl={4}>
-<Card className="p-3 card-design case-list">
+<Card className="p-3 card-design main-case-list">
     <Row className="gy-3">
     <Col xs={12} xl={6}>
     <h5 className="fw-bold title-text mb-3">Category of Cases</h5>
@@ -177,7 +247,7 @@ return(
     </Row>
         {/* <DoughnutChart /> */}
         {/* <Tables /> */}
-        <ListGroups type="main-level"/>
+        <ListGroups />
     </Card>
 </Col>
         </Row>
@@ -239,7 +309,7 @@ return(
       {/* <div className="ms-auto w-50 mb-3">
        </div> */}
  <Tab eventKey='state_level' title={<span><FontAwesomeIcon className="pe-2" icon={faMagnifyingGlassChart} />State Level Statistics</span>}>
-<Card className="p-3 py-4 card-design bg-group">
+<Card className="p-3 py-4 card-design bg-group-main">
       <Row className="gy-2">
 
 
@@ -256,7 +326,7 @@ return(
     </Col>
 
     <Col xs={12} xl={7}> 
-    <Card className="p-3 card-design map-details h-100">
+    <Card className="px-3 pt-3 card-design map-details h-100 bg-color-sub">
         {/* <h5 className="fw-bold title-text">Cases Reported in 2024</h5> */}
         {/* <Row className="gy-3">
         {signals.map((data, index) => (

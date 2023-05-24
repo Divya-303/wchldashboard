@@ -77,7 +77,6 @@ const BarChart = (props) => {
         // backgroundColor:"rgb(65, 110, 238)",
         // 
         backgroundColor:function(tooltipItem) {
-          console.log(tooltipItem);
           const bgColor = tooltipItem.tooltip.labelColors[0].backgroundColor;
           return bgColor;
         },

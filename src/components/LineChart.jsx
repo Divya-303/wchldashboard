@@ -25,7 +25,7 @@ const LineChart = (props) => {
         label: "Calls",
         backgroundColor: ({chart: {ctx}}) => {
           ctx.save(); 
-          const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+          const gradient = ctx.createLinearGradient(0, 0, 0, 150);
           gradient.addColorStop(0, 'rgba(13, 98, 239, 1)');
           gradient.addColorStop(0.5, 'rgba(84, 109, 243, 0.3)');
           gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
@@ -61,7 +61,7 @@ const LineChart = (props) => {
           // ctx.shadowOffsetX = 0;
           // ctx.shadowOffsetY = 4;
           // ctx.lineWidth = 10;
-          const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+          const gradient = ctx.createLinearGradient(0, 0, 0, 400);
           gradient.addColorStop(0, 'rgba(13, 98, 239, 0.7)');
           gradient.addColorStop(0.5, 'rgba(13, 98, 239, 0.4)');
           gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
@@ -73,7 +73,7 @@ const LineChart = (props) => {
         // borderColor: "rgb(13 98 239)",
         borderColor: ({chart: {ctx}}) => {
             ctx.save(); 
-            const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
             gradient.addColorStop(0, 'rgba( 13, 98, 239, 1)');
             gradient.addColorStop(0.5, 'rgba(7, 247, 240, 1)');
             gradient.addColorStop(1, 'rgba( 16, 9, 247, 1)') 

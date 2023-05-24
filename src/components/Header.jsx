@@ -1,37 +1,26 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
+// import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+// import Form from 'react-bootstrap/Form';
+// import Button from 'react-bootstrap/Button';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from "react-bootstrap/Image";
 import logopic from '../assets/images/logo.webp';
 import logotext from '../assets/images/logo-text.webp';
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
-import DatePickerRange from "../components/DatePickerRange";
-import SelectBox from "../components/SelectBox";
-import calls from "../data/calls";
+
+// import DatePickerRange from "../components/DatePickerRange";
+// import SelectBox from "../components/SelectBox";
+// import calls from "../data/calls";
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
 import userpic from '../assets/images/user.webp';
 
 const Header = () => {
-  // const [service, setServive] = useState(false);
-  // const selectedValue = val => {
-  //      val === 'c03' ? setServive(true) : setServive(false);
-  //   }
-    // Set your color here
-// const entering = (e) => {
-//   console.log(e);
-//   e.children[0].style.borderTopColor = 'green';
-//   e.children[1].style.backgroundColor = 'green';
-// };
   return (
     <Navbar expand="false">
        
@@ -126,70 +115,7 @@ const Header = () => {
           </Nav.Link>
         </Nav.Item>
       </Nav> */}
-      <Container className="justify-content-center w-auto">
-      {/* w-75 */}
-      <Row>
-        <Col xs={12} xl={6}>
-          {/* <Form.Label>Date Range</Form.Label> */}
-          <OverlayTrigger
-          key="bottom"
-          placement="bottom"
-          overlay={
-            <Tooltip className="form-tooltip-bottom">
-              <strong>Date Range</strong>.
-            </Tooltip>
-          }
-        >
-          <div>
-    <DatePickerRange />
-    </div>
-    </OverlayTrigger>
-    </Col>
-        <Col xs={12} xl={6}>
-          {/* <Form.Label>Type of Calls</Form.Label> */}
-          {/* show={true} */}
-          <OverlayTrigger 
-          key="bottom"
-          placement="bottom"
-          overlay={
-            <Tooltip className="form-tooltip-bottom" >
-              <strong>Type of Calls</strong>.
-            </Tooltip>
-          }
-        >
-          <div>
-          {/* getValue={selectedValue} */}
-    <SelectBox  size="sm" type="calls" option='Type of calls' call={calls} />
-    </div>
-    </OverlayTrigger>
-    </Col>
-        {/* <Col xs={12} xl={4} className='text-center'> 
-        <Form.Label>Age Range</Form.Label>
-        <OverlayTrigger
-          key="bottom"
-          placement="bottom"
-          overlay={
-            <Tooltip className="tooltip-bottom">
-              <strong>Age Range</strong>.
-            </Tooltip>
-          }
-        >
-          <Form>
-      <Form.Group as={Row}>
-        <Col xs="9">
-      <Form.Range max={100}
-            min={0} step="1" value={val}
-            onChange={e => setVal(e.target.value)} />
-            </Col>
-        <Col xs="3">
-          <Form.Control value={val}/>
-        </Col>
-        </Form.Group>
-            </Form>
-    </OverlayTrigger>
-      </Col> */}
-      </Row>
-    </Container>
+
         {/* <Card className="justify-content-center p-3 card-design">
       <h5 className="fw-bold title-text mb-3">Select Criteria to View Report</h5>
       <Row className="gy-3"> 

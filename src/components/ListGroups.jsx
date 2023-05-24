@@ -12,13 +12,13 @@ const ListGroups = (props) => {
   const [results, setResults] = useState(cases);
   // setResults(cases);
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState('');
+  const [perPage, setPerPage] = useState(5);
   const filtered = useMemo(() => {
-    if(props.type === "main-level") {
-      setPerPage(6);
-    } else {
-      setPerPage(5);
-    }
+    // if(props.type === "main-level") {
+    //   setPerPage(6);
+    // } else {
+    //   setPerPage(5);
+    // }
     var filteredResult = results;
     // console.log('fs new', filteredResult);
     // console.log('fs', filteredResult.slice(0,5));
@@ -26,7 +26,7 @@ const ListGroups = (props) => {
       (currentPage - 1) * perPage,
       (currentPage - 1) * perPage + perPage
     );
-  }, [props.type, results, currentPage, perPage]);
+  }, [results, currentPage, perPage]);
 
   const caseList = () => {
     // console.log('fs', filtered);

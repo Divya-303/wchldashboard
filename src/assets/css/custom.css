@@ -155,21 +155,7 @@
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
   }
-  
-  .form-tooltip-bottom .tooltip-inner {
-    background-color: #ffffff;
-    /* background: linear-gradient(rgb(13 202 240 / 60%), rgb(255 255 255 / 70%)); */
-    box-shadow: 0px 3px 5px rgb(112 212 243 / 68%);
-    color: #1c4789;
-  }
-  
-  .form-tooltip-bottom .tooltip-arrow {
-    border-top-color: rgb(112 212 243 / 85%);
-  }
-  
-  .form-tooltip-bottom .tooltip-arrow::before {
-    border-bottom-color: rgb(112 212 243 / 85%);
-  }
+
   /* Avatar */
   .avatar {
     width:40px;
@@ -283,12 +269,24 @@
   
   /* Card */
   
-  .bg-group {
+  .bg-group-main {
     /* background-color: #81b2d117; */
-    background: url(../images/images.jpg);
+    /* background: url(../images/images.jpg); */
+    background: linear-gradient(rgb(226 247 252 / 50%),rgb(154 229 241 / 50%));
+    /* background: url(../images/bg-3.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
   }
+
+  .bg-group-sub {
+    background: linear-gradient(rgb(204 222 247 / 12%),rgb(13 202 240 / 10%));
+    /* background-color: #81b2d117; */
+    /* background: url(../images/bg-2.jpg); */
+    /* background: url(../images/bg-4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+
   .card-design {
     box-shadow: 0px 0px 9px 3px #95d2df40 !important;
     -webkit-box-shadow: 0px 0px 9px 3px #95d2df40;
@@ -297,6 +295,31 @@
     /* height: 100%; */
     /* height: fit-content !important */
     border: none;
+  }
+
+  /* For Filter */
+
+  .form-filter {
+    position: relative;
+    top: -2px;
+    right: 2px;
+    float: right;
+    /* width: 35%; */
+  }
+  
+  .form-tooltip-bottom .tooltip-inner {
+    background-color: #ffffff;
+    /* background: linear-gradient(rgb(13 202 240 / 60%), rgb(255 255 255 / 70%)); */
+    box-shadow: 0px 3px 5px rgb(112 212 243 / 68%);
+    color: #1c4789;
+  }
+  
+  .form-tooltip-bottom .tooltip-arrow {
+    border-top-color: rgb(112 212 243 / 85%);
+  }
+  
+  .form-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: rgb(112 212 243 / 85%);
   }
   
   /* cards-district-signals */
@@ -324,13 +347,16 @@
   
   .main-tab .nav-link{
     font-weight: bold;
+    font-size: 15px;
+    
     /* padding-top: 13px; */
     /* text-align: center; */
     /* background: #343436; */
     /* background: linear-gradient(to bottom right, rgb(13 110 253 / 0.9),rgb(13 219 240 / 90%)); */
+    background: linear-gradient(to bottom right, rgb(11 142 255 / 90%),rgb(13 219 240 / 90%));
     color: #fff;
     border: none;
-    background-color: #3d78f6;
+    /* background-color: #3d78f6; */
     width: 300px;
     /* border-radius: 30px; */
     /* height: 100px; */
@@ -338,8 +364,10 @@
   
   
   .main-tab .nav-link.active{
+    /* box-shadow: 0px -3px 5px 0px rgb(182 247 250 / 65%); */
     box-shadow: 0px -3px 5px rgb(112 212 243 / 68%);
-    background: url(../images/images.jpg);
+    /* background: url(../images/images.jpg); */
+    background: url(../images/bg-3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     /* background: #fff; */
@@ -350,8 +378,99 @@
   .main-tab .nav-link span svg {
     font-size:20px;
   }
-  
-  
+  .sub-tab{
+    padding-left: 15px;
+    border-bottom: 5px solid #45d1ef;
+    /* padding-right: 15px;
+    border-radius: 2px; */
+}
+.sub-tab .nav-item .nav-link{
+    /* color: #fff; */
+    color: #008cd9;
+    font-weight: 700;
+    padding: 4px 20px 3px;
+    margin-right: 12px;
+    background: #76e5f8d6;
+    /* background: linear-gradient(rgb(218 233 255),rgb(13 202 240 / 63%)); */
+    /* background: linear-gradient(to bottom, rgb(226 238 255),rgb(13 202 240 / 70%)); */
+    /* background: linear-gradient(rgb(204 222 247 / 12%),rgb(13 202 240 / 10%)); */
+    /* background: #008cd9; */
+    /* text-shadow: 1px 1px 2px #000; */
+    border: none;
+    border-radius: 0;
+    /* opacity: 0.9; */
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+/* .sub-tab .nav-link:hover{ */
+    /* background: #008cd9; */
+    /* background: linear-gradient(to bottom, rgb(226 238 255),rgb(13 202 240 / 70%)); */
+    /* opacity: 0.5; */
+   
+/* } */
+/* .sub-tab .nav-link.active {
+    opacity: 0.6;
+} */
+.sub-tab .nav-link.active,
+.sub-tab .nav-link.active:hover,
+.sub-tab .nav-link.active:focus{
+    /* color: #fff; */
+    color:#084298;
+    /* background: linear-gradient(to bottom, rgb(226 238 255),rgb(13 202 240 / 70%)); */
+    background: linear-gradient(to right, rgb(218 233 255),rgb(13 202 240 / 63%));
+    /* background: #008cd9; */
+    border: none;
+    border-radius: 0;
+}
+.sub-tab .nav-link:before,
+.sub-tab .nav-link:after{
+    content: "";
+    border-top: 37px solid transparent;
+    position: absolute;
+    top: 0px;
+}
+.sub-tab .nav-link:before{
+    border-right: 15px solid #85e8fb;
+    /* border-right: 15px solid #008cd9; */
+    left: -15px;
+}
+.sub-tab .nav-link:after{
+    border-left: 15px solid #85e8fb;
+    /* border-left: 15px solid #008cd9; */
+    right: -15px;
+}
+.sub-tab .nav-link .font-icon,
+.sub-tab .nav-link.active  .font-icon{
+    display: inline-block;
+    padding-right: 7px;
+    font-size: 20px;
+    text-shadow: none;
+}
+.sub-tab .nav-link .icon-label{
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: -9px;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+}
+.sub-tab .nav-link:hover .icon-label,
+.sub-tab .nav-link.active .icon-label{
+    letter-spacing: 1px;
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+}
+
+@media only screen and (max-width: 479px){
+    .sub-tab .nav-link{
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .sub-tab .nav-link .icon-label{
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+}
   
   /* .nav-tabs.icon-tab {
     border: none;
@@ -523,7 +642,7 @@
   /* Map */
   .img-map {
     /* height: 548px; */
-    height: 700px;
+    height: 720px;
   }
   
   .map-details {
@@ -635,9 +754,12 @@
   
   
   /* For List Group */
-  /* .case-list {
-    height: 450px;
-  } */
+  .main-case-list {
+    height: 452px;
+  }
+  .sub-case-list {
+    height: 426px;
+  }
   .case-list .list-group-style .list-group-item {
     padding-top : 5px;
     padding-bottom : 5px;

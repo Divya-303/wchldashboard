@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleInfo, faSquarePhone } from '@fortawesome/free-solid-svg-icons';
 import BarChart from './BarChart';
-// import states from "../data/states";
+import states from "../data/states";
 import districts from '../data/districtsUP';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -15,18 +17,23 @@ import timer from "../data/timer";
 import ListGroups from "../components/ListGroups";
 
 const TabPanel = () => {
-    const [key, setKey] = useState('total_cases');
+    const [key, setKey] = useState('case_details');
   return (
     <Tabs
       activeKey={key}
       onSelect={(k) => setKey(k)}
-      className="mb-3" justify
+      className="sub-tab" 
     >
+      {/* justify */}
         {/* fill */}
-    <Tab eventKey='total_cases' title="Case Details">
+      <Tab eventKey='case_details' title={<div><span className="font-icon"><FontAwesomeIcon icon={faCircleInfo} /> </span><span className="icon-label">Case Details</span></div>}>
+      <Card className="p-3 card-design bg-group-sub">
+      {/* <Row className="gy-2">  
+      <Col xl={7}>
+    <Tab eventKey='total_cases' title="Case Details"> */}
       <Row className="gy-3">  
 
-      <Col xs={6} sm={6} xl={2}>
+      <Col sm={6} xl={2}>
       {/* <Card className="p-3 card-design h-100"> */}
       {/* <h5 className="fw-bold title-text">Signal</h5> */}
       <Row className="pt-1 gy-4">
@@ -39,7 +46,7 @@ const TabPanel = () => {
         {/* </Card> */}
         </Col>
 
-      <Col xs={12} sm={12} xl={5}>
+      <Col sm={12} xl={5}>
       <Card className="p-3 card-design">
       <div className="mb-2">
       <h5 className="fw-bold title-text">District</h5>
@@ -51,7 +58,9 @@ const TabPanel = () => {
       </Col>
 
       <Col xs={12} xl={5}>
-        <Card className="p-3 card-design">
+        <Row className="p-0">
+        <Col xl={12}>
+        <Card className="p-3 card-design sub-case-list">
         {/* <Row className="gy-3">
         <Col xs={12} xl={6}> */}
         <h5 className="fw-bold title-text mb-3">Category of Cases</h5>
@@ -66,24 +75,29 @@ const TabPanel = () => {
         {/* <Tables /> */}
         <ListGroups />
       </Card>
-    
-      <Col xs={12} xl={12}>
+        </Col>
+        <Col xl={12}>
           <Card className="p-3 mt-4 card-design">
         <div className="mb-2">
         <h5 className="fw-bold title-text">Case Analytics </h5>
-            <DoughnutChart height='145px'/>
+            <DoughnutChart height='154px'/>
         </div>
         </Card>
       </Col>
+        </Row>
+     
+    
+   
      </Col>
 
     </Row>
+     </Card>
   </Tab>
 
 
 {/* 2ND TAB */}
 
-  {/* <Tab eventKey="case_details" title="Case Details">
+  {/* <Tab eventKey="case_details" title={<div><span className="font-icon"><FontAwesomeIcon icon={faCircleInfo} /> </span><span className="icon-label">Case Details</span></div>}>
     <Row className="gy-3">
         <Col xs={12} xl={6}>
         <Card className="p-3 card-design h-100"> */}
@@ -114,13 +128,14 @@ const TabPanel = () => {
   </Tab> */}
 
 
-  <Tab eventKey="call_details" title="Call Details">
+  <Tab eventKey="call_details" title={<div><span className="font-icon"><FontAwesomeIcon icon={faSquarePhone} /> </span><span className="icon-label">Call Details</span></div>}>
+  <Card className="p-3 card-design bg-group-sub">
     <Row className="gy-3">
 
     <Col xl={12}> 
     <Card className="p-3 card-design">
     <h5 className="fw-bold title-text">Reported Calls </h5>
-        <LineChart type='line' />
+        <LineChart type='line' height="155"/>
     </Card>
     </Col> 
 
@@ -147,12 +162,23 @@ const TabPanel = () => {
     </Row>
     </Col>
 
-    </Row>
-      </Tab>
+    <Col xl={12}>
+    <Card className="mt-2 p-3 card-design">
+        <div className="mb-2">
+        <h5 className="fw-bold title-text">Call response Time </h5>
+          <LineChart type='curve' state={states} height="155"/>
+        </div>
+      </Card>
+    </Col>
 
+    </Row>
+    </Card>
+      </Tab>
+{/* 
       <Tab eventKey='call_response_time' title="Call Response Time">
-      <h5 className="text-center">Call response Time </h5>
-        </Tab>
+    
+        </Tab> */}
+
     
     </Tabs> 
   )
