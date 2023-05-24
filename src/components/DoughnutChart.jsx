@@ -2,7 +2,7 @@ import React from 'react';
 import Chart from "chart.js/auto";
 import { Doughnut } from 'react-chartjs-2';
 
-const DoughnutChart = () => {
+const DoughnutChart = (props) => {
     const data = {
         labels: [
           'Information gathering', 'Counselling',
@@ -108,7 +108,7 @@ const DoughnutChart = () => {
     }
   
   return (
-    <div style={{height:'250px'}}>
+    <div style={{height:props.height}}>
         <Doughnut data={data} height={210}
         options={option} plugins={[hoverLabel]}/>
     </div>

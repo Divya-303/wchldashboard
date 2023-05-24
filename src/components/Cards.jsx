@@ -23,10 +23,12 @@ const Cards = (props) => {
 
 
   return (
-    <Card className={props.type === "Signals" ? 'border-end' : 'card-design'}>
+    <Card className={(props.type === 'Signals' || props.type ==='District-signals') ? 'border-end' : 'card-design'}>
+    {/* <Card className={props.type === 'Signals' ? 'border-end' : ((props.type ==='District-signals') ? 'border-end-d' : 'card-design')}> */}
+
          {/* <Card className="border-end" onMouseEnter={handleMouseEnter}
     onTransitionEnd={handleTransitionEnd}> */}
-    <Card.Body>
+    <Card.Body className={props.type ==='District-signals' ? 'd-no-padding' : ''}>
       {/* <Card.Title>{props.count}</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">{props.name}</Card.Subtitle>
       <Card.Text className='text-end'> */}
@@ -36,7 +38,7 @@ const Cards = (props) => {
 
 
       <Container>
-    <Row className="gy-3">
+    <Row className="gy-2 d-flex justify-content-center align-items-center">
 {/* {props.type === 'Cases' && 
       <>
     <Col xs={12} xl={6} className='text-start'>
@@ -73,13 +75,29 @@ const Cards = (props) => {
 
 {props.type === "Signals" && 
 <>
-<Col xs={12} xl={5} className='text-start rounded-circle bg-soft d-flex justify-content-center align-items-center'>
+  <Col xs={12} xl={5} className='text-start rounded-circle bg-soft d-flex justify-content-center align-items-center'>
     <FontAwesomeIcon icon={Icon} size="2xl" style={{color: props.color}} />
     </Col>
     <Col xs={12} xl={7} className='text-end mx-auto pe-0'>
             <h4 className='fw-bolder card-count'>{props.count}</h4>
             <h6 className='fw-bolder card-name'>{props.name}</h6>
     </Col>
+    </>
+}
+
+{props.type === "District-signals" && 
+<>
+  <Col xs={6} xl={2} className='text-start rounded-circle bg-soft d-flex justify-content-center align-items-center'>
+    <FontAwesomeIcon icon={Icon} size="2xl" style={{color: props.color}} />
+    </Col>
+    <Col className='text-center'>
+    <h4 className='fw-bolder d-signal-name'>{props.name}</h4> 
+    <h6 className='fw-bolder d-signal-count'> {props.count}</h6>
+    
+    </Col>
+    {/* <Col xs={6} xl={5} className='text-end mx-auto pe-0'>
+      
+    </Col> */}
     </>
 }
     </Row>

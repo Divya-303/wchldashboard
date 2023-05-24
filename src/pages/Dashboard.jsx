@@ -124,7 +124,7 @@ return(
       <div className="mb-2">
       <h5 className="fw-bold title-text">All state Cases</h5>
           {/* <BarChart state={states}/> */}
-          <BarChart state={states} type='national' height='228px'/>
+          <BarChart state={states} type='national' height='228'/>
       </div>
       </Card>
       </Col>

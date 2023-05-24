@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import BarChart from './BarChart';
-import states from "../data/states";
+// import states from "../data/states";
 import districts from '../data/districtsUP';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -23,44 +23,73 @@ const TabPanel = () => {
       className="mb-3" justify
     >
         {/* fill */}
-      <Tab eventKey='total_cases' title="Total Cases">
-      <Row className="gy-2">  
-      <Col xl={7}>
-      <Card className="p-3 card-design">
-      <div className="mb-2">
-      <h5 className="fw-bold title-text">District</h5>
-          {/* <BarChart state={states}/>   */}
-          <BarChart state={districts} type='statelevel' className='scroll-box'/>  
-      </div>
-      </Card>
-      </Col>
-      <Col xl={5}>
-      <Card className="mt-3 p-3 card-design">
-<h5 className="fw-bold title-text">Signal</h5>
-<Row className="pt-1 gy-4">
+    <Tab eventKey='total_cases' title="Case Details">
+      <Row className="gy-3">  
+
+      <Col xl={2}>
+      {/* <Card className="p-3 card-design h-100"> */}
+      {/* <h5 className="fw-bold title-text">Signal</h5> */}
+      <Row className="pt-1 gy-4">
         {signals.map((data, index) => (
-          <div xs={6} sm={6} xl={3} key={data.id} className="col-case">
-          <Cards key={data.id}
-            name={data.name}
-            icon={data.icon}
-            color={data.color}
-            count={data.count} 
-            type="Signals" />
+          <div xs={6} sm={6} xl={2} key={data.id} className="col-case">
+          <Cards key={data.id} name={data.name} icon={data.icon} color={data.color} count={data.count} type="District-signals" />
           </div>
         ))}
         </Row>
-        </Card>
+        {/* </Card> */}
         </Col>
-     </Row>
-      </Tab>
 
-        <Tab eventKey="case_details" title="Case Details">
-        <Row className="gy-3">
+      <Col xl={5}>
+      <Card className="p-3 card-design">
+      <div className="mb-2">
+      <h5 className="fw-bold title-text">District</h5>
+      
+          {/* <BarChart state={states}/>   */}
+          <BarChart state={districts} type='statelevel' height='630'className='scroll-box'/>  
+      </div>
+      </Card>
+      </Col>
+
+      <Col xs={12} xl={5}>
+        <Card className="p-3 card-design">
+        {/* <Row className="gy-3">
+        <Col xs={12} xl={6}> */}
+        <h5 className="fw-bold title-text mb-3">Category of Cases</h5>
+        {/* </Col>
+        {service === true  && 
+        <Col xs={12} xl={6} className="mb-2">
+        <SelectBox  size="sm" type="services" option='Select Services' call={services}/>
+        </Col>
+        }
+        </Row> */}
+        {/* <DoughnutChart /> */}
+        {/* <Tables /> */}
+        <ListGroups />
+      </Card>
+    
+      <Col xs={12} xl={12}>
+          <Card className="p-3 mt-4 card-design">
+        <div className="mb-2">
+        <h5 className="fw-bold title-text">Case Analytics </h5>
+            <DoughnutChart height='145px'/>
+        </div>
+        </Card>
+      </Col>
+     </Col>
+
+    </Row>
+  </Tab>
+
+
+{/* 2ND TAB */}
+
+  {/* <Tab eventKey="case_details" title="Case Details">
+    <Row className="gy-3">
         <Col xs={12} xl={6}>
-        <Card className="p-3 card-design h-100">
+        <Card className="p-3 card-design h-100"> */}
     {/* <Row className="gy-3">
     <Col xs={12} xl={6}> */}
-    <h5 className="fw-bold title-text mb-3">Category of Cases</h5>
+    {/* <h5 className="fw-bold title-text mb-3">Category of Cases</h5> */}
     {/* </Col>
     {service === true  && 
         <Col xs={12} xl={6} className="mb-2">
@@ -70,30 +99,28 @@ const TabPanel = () => {
     </Row> */}
         {/* <DoughnutChart /> */}
         {/* <Tables /> */}
-        <ListGroups type="sub-level"/>
+        {/* <ListGroups />
     </Card>
         </Col>
         <Col xs={12} xl={6}>
         <Card className="p-3 card-design">
       <div className="mb-2">
-      <h5 className="fw-bold title-text">Case Analytics </h5>
+      <h5 className="fw-bold title-text">Call Analytics </h5>
           <DoughnutChart />
       </div>
-      
-      
       </Card>
         </Col>
-        </Row>
-      </Tab>
+    </Row>
+  </Tab> */}
 
 
-      <Tab eventKey="call_details" title="Call Details">
-        <Row className="gy-3">
+  <Tab eventKey="call_details" title="Call Details">
+    <Row className="gy-3">
 
-        <Col xl={12}> 
+    <Col xl={12}> 
     <Card className="p-3 card-design">
     <h5 className="fw-bold title-text">Reported Calls </h5>
-        <LineChart type='line' height="200"/>
+        <LineChart type='line' />
     </Card>
     </Col> 
 
@@ -124,12 +151,7 @@ const TabPanel = () => {
       </Tab>
 
       <Tab eventKey='call_response_time' title="Call Response Time">
-      <Card className="mt-4 p-3 card-design">
-        <div className="mb-2">
-        <h5 className="fw-bold title-text">Call response Time </h5>
-          <LineChart type='curve' state={states} height="250"/>
-        </div>
-      </Card>
+      <h5 className="text-center">Call response Time </h5>
         </Tab>
     
     </Tabs> 

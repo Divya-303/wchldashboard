@@ -51,22 +51,14 @@ const BarChart = (props) => {
     datasets: [
       {
         label: "Reported Cases",
-        barThickness: 10,
-        backgroundColor: "rgb(44, 119, 244)", 
-        borderWidth: 1.3,
-        borderColor: '#FFFFFF',
+        barThickness: 6,
+        // backgroundColor: "rgb(44, 119, 244)", 
+        backgroundColor: "rgb(44, 119, 244)",
+        // borderWidth: 1.3,
+        // borderColor: '#FFFFFF',
         borderRadius: 4,
         data: value2,
       },
-      // {
-      //   label: "Resolved Cases",
-      //   barThickness: 10,
-      //   backgroundColor: "rgb(30, 202, 184)",
-      //   borderWidth: 1.3,
-      //   borderColor: '#FFFFFF',
-      //   borderRadius: 4,
-      //   data: [21, 3, 18, 5, 10, 28, 16, 8, 5, 11, 6, 17, 22, 58, 25, 34, 10, 20, 57, 16, 3, 21, 7, 13, 39, 19, 9, 21, 4, 33, 8, 38, 20, 37, 52, 47]
-      // }
     ],
    
   };
@@ -127,31 +119,20 @@ const BarChart = (props) => {
 const options2 = {
   indexAxis: 'y',
   // responsive: true,
-  // maintainAspectRatio: true,
+  maintainAspectRatio: false,
   scales: {
       x: {grid: {display: false}},
-      y: { border:{dash: [2, 2]},  },
+      y: { border:{dash: [2, 2]}, },
   },
   plugins: {
     tooltip: {
       enabled: true,
-      // backgroundColor: "rgba(60, 151, 204, 0.137)",
+      // backgroundColor: "rgba(60, 151, 204, 0.137)",linear-gradient(310deg,#6d88f9,#21d4fd);
       backgroundColor:"rgb(44, 119, 244)",
       titleSpacing: 3,
       titleMarginBottom: 10,
       borderWidth: 2,
       bodyColor: "#000000",
-      // yAlign: "bottom",
-      // xAlign: "left",
-      // callbacks: {
-      //   title: function(tooltipItem) {
-      //     for (let state of props.state) {
-      //       if (state.shortCode === tooltipItem[0].label) {
-      //         return state.stateName;
-      //       }
-      //     }
-      //   },
-      // }
     },
   legend:{
     labels: {usePointStyle: true, pointStyle: 'triangle'}
@@ -159,6 +140,21 @@ const options2 = {
   // animation: {y: {from: 500}}
   }
 }
+
+// const subbox = document.querySelector('.subbox');
+// console.log(subbox.style.height);
+// subbox.style.height = '630px';
+var newHeight = `${props.height}`;
+if(props.type === 'statelevel' & props.state.length > 30){
+  // console.log('district');
+  // console.log(props.state.length);
+  newHeight = 630 + ((props.state.length-30) * 20);
+  // if(subbox.style != null){
+  //   subbox.style.height = `${newHeight}px`;
+  // }
+
+}
+console.log(newHeight);
 
   return (
     <>
@@ -169,13 +165,11 @@ const options2 = {
     }
 
     {props.type === 'statelevel' &&
-      (<div className='chart-box'>
-        <div style={{height:`${props.height + 'px'}`}} className='scroll-box'>
-          <div className='box'>
-          <Bar data={data2}  height={450} width={444} options={options2} />
+      (<div style={{height:`${props.height + 'px'}`}} className='scroll-box'>
+          <div className='subbox' id='style-1' style={{height:`${newHeight+ 'px'}`}}>
+          <Bar data={data2} height={630} width={350} options={options2} />
           </div>
-        </div>
-      </div>)
+        </div>)
     }
     </>
 
