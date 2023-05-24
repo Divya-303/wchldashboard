@@ -26,20 +26,20 @@ const TabPanel = () => {
     <Tab eventKey='total_cases' title="Case Details">
       <Row className="gy-3">  
 
-      <Col xl={2}>
+      <Col xs={6} sm={6} xl={2}>
       {/* <Card className="p-3 card-design h-100"> */}
       {/* <h5 className="fw-bold title-text">Signal</h5> */}
       <Row className="pt-1 gy-4">
         {signals.map((data, index) => (
-          <div xs={6} sm={6} xl={2} key={data.id} className="col-case">
+          <Col xl={12} key={data.id} className="col-case">
           <Cards key={data.id} name={data.name} icon={data.icon} color={data.color} count={data.count} type="District-signals" />
-          </div>
+          </Col>
         ))}
         </Row>
         {/* </Card> */}
         </Col>
 
-      <Col xl={5}>
+      <Col xs={12} sm={12} xl={5}>
       <Card className="p-3 card-design">
       <div className="mb-2">
       <h5 className="fw-bold title-text">District</h5>

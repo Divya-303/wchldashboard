@@ -824,6 +824,8 @@
   /* height: 603px;  */
   width: 356px; 
   max-height: 603px;
+  max-width: 100%;
+  min-width: 100%;
   overflow-y:scroll;
 }
 ::-webkit-scrollbar-track {

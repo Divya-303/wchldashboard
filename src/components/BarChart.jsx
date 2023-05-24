@@ -118,7 +118,7 @@ const BarChart = (props) => {
 
 const options2 = {
   indexAxis: 'y',
-  // responsive: true,
+  responsive: true,
   maintainAspectRatio: false,
   scales: {
       x: {grid: {display: false}},
