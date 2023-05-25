@@ -53,7 +53,9 @@ const LineChart = (props) => {
         tension: 0.5,
         label: "Calls",
         // backgroundColor: Custom.draw(),
-
+        // backgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
+        pontBorderWidth: 5,
         backgroundColor: ({chart: {ctx}}) => {
           ctx.save(); 
           // ctx.shadowColor = 'black'

@@ -87,10 +87,10 @@ const Cards = (props) => {
 
 {props.type === "District-signals" && 
 <>
-  <Col xs={6} xl={2} className='text-start rounded-circle bg-soft d-flex justify-content-center align-items-center'>
+  <Col xs={12} xl={2} className='text-start rounded-circle bg-soft d-flex justify-content-center align-items-center'>
     <FontAwesomeIcon icon={Icon} size="2xl" style={{color: props.color}} />
     </Col>
-    <Col xs={12} xl={12} className='text-center'>
+    <Col xl={12} className='text-center'>
     <h4 className='fw-bolder d-signal-name'>{props.name}</h4> 
     <h6 className='fw-bolder d-signal-count'> {props.count}</h6>
     

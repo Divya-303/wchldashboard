@@ -33,12 +33,12 @@ const TabPanel = () => {
     <Tab eventKey='total_cases' title="Case Details"> */}
       <Row className="gy-3">  
 
-      <Col sm={6} xl={2}>
+      <Col xs={12} xl={2}>
       {/* <Card className="p-3 card-design h-100"> */}
       {/* <h5 className="fw-bold title-text">Signal</h5> */}
       <Row className="pt-1 gy-4">
         {signals.map((data, index) => (
-          <Col xl={12} key={data.id} className="col-case">
+          <Col xs={12} sm={6} md={3} xl={12} key={data.id} className="col-case">
           <Cards key={data.id} name={data.name} icon={data.icon} color={data.color} count={data.count} type="District-signals" />
           </Col>
         ))}

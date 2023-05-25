@@ -73,9 +73,6 @@ const BarChart = (props) => {
       tooltip: {
         
         enabled: true,
-        // backgroundColor: "rgba(60, 151, 204, 0.137)",
-        // backgroundColor:"rgb(65, 110, 238)",
-        // 
         backgroundColor:function(tooltipItem) {
           const bgColor = tooltipItem.tooltip.labelColors[0].backgroundColor;
           return bgColor;
@@ -97,11 +94,6 @@ const BarChart = (props) => {
                   }
                 }
             },
-          //   labelColor: function(tooltipItem, chart) {
-          //     return {
-          //         backgroundColor: '#6d88f9'
-          //     }
-          // },
         }
     },
     legend:{
@@ -126,7 +118,6 @@ const options2 = {
   plugins: {
     tooltip: {
       enabled: true,
-      // backgroundColor: "rgba(60, 151, 204, 0.137)",linear-gradient(310deg,#6d88f9,#21d4fd);
       backgroundColor:"rgb(44, 119, 244)",
       titleSpacing: 3,
       titleMarginBottom: 10,
@@ -136,27 +127,17 @@ const options2 = {
   legend:{
     labels: {usePointStyle: true, pointStyle: 'triangle'}
   },
-  // animation: {y: {from: 500}}
   }
 }
 
-// const subbox = document.querySelector('.subbox');
-// console.log(subbox.style.height);
-// subbox.style.height = '630px';
+
 var newHeight = `${props.height}`;
 if(props.type === 'statelevel' & props.state.length > 30){
-  // console.log('district');
-  // console.log(props.state.length);
   newHeight = 630 + ((props.state.length-30) * 20);
-  // if(subbox.style != null){
-  //   subbox.style.height = `${newHeight}px`;
-  // }
-
 }
-console.log(newHeight);
 
-  return (
-    <>
+return (
+  <>
     {props.type === 'national' &&
       (<div style={{height:`${props.height + 'px'}`}}>
       <Bar data={data1}  height={228} options={options1} />
@@ -170,18 +151,9 @@ console.log(newHeight);
           </div>
         </div>)
     }
-    </>
+  </>
 
-      // {props.type === 'national' &&
-      //   <Bar data={data1}  height={228} options={options1} />
-      // }
-
-      // {props.type === 'statelevel' &&
-      //   <Bar data={data2} height={500} options={options2} />
-      // }
-
-    // </div>
-  )
+)
 }
 
 export default BarChart;
