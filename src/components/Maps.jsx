@@ -1,60 +1,142 @@
-// import React, { useState, useEffect } from 'react';
-import React from 'react';
-// import { Map, MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import { MapContainer, TileLayer } from 'react-leaflet';
-// import "leaflet-boundary-canvas";
-// import L from "leaflet";
+import React, { useEffect, useRef, useState } from "react";
+import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointLeft } from "@fortawesome/free-solid-svg-icons";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import { GeoJSON, MapContainer } from "react-leaflet";
+import * as topojson from "topojson-client";
+import india from "../json/india.json";
+import states from "../data/states";
+import { layersUtils, getCenterOfGeoJson } from "../data/mapUtils";
+import { scaleQuantile } from "d3-scale";
+// import MapLegend from './MapLegend';
+import "leaflet/dist/leaflet.css";
 
-// const position = [51.505, -0.09];
-// const mapStyle = { height: "60vh" };
+const COUNTRY_VIEW_ID = "india-states";
 
 const Maps = () => {
-    // const [map, setMap] = useState(null);
-    // useEffect(() => {
-       
-    //     if (!map) return;
-    
-    //     const fetchGeoJSON = async () => {
-    //       const response = await fetch(
-    //         "https://cdn.rawgit.com/johan/world.geo.json/34c96bba/countries/IND.geo.json"
-    //       );
-    //       const geoJSON = await response.json();
-    //       const osm = L.TileLayer.boundaryCanvas(
-    //         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    //         {
-    //           boundary: geoJSON,
-    //           attribution:
-    //             '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, UK shape <a href="https://github.com/johan/world.geo.json">johan/word.geo.json</a>'
-    //         }
-    //       );
-    //       map.addLayer(osm);
-    //       const ukLayer = L.geoJSON(geoJSON);
-    //       map.fitBounds(ukLayer.getBounds());
-    //       console.log(map);
-    //     };
+  const [geoJsonId, setGeoJsonId] = useState(COUNTRY_VIEW_ID);
+  const geoJson = topojson.feature(india, india.objects[geoJsonId]);
+  const colorScale = scaleQuantile()
+    .domain(states.map((s) => s.reportCase))
+    .range([
+      "#193d8f",
+      "#226ab1",
+      "#3b8dc2",
+      "#65abd3",
+      "#c5d9ed",
+      //   "#e2492d",
+      //   "#be3d26",
+      //   "#9a311f",
+      //   "#782618"
+    ]);
 
-    //     fetchGeoJSON();
-    //   }, [map]);
+  var mapRef = useRef(null);
+  var geoJsonRef = useRef(null);
+
+  const onDrillDown = (e) => {
+    // console.log(e.target.feature);
+    const featureId = e.target.feature.id;
+    if (!india.objects[featureId]) {
+      return;
+    }
+    setGeoJsonId(featureId);
+  };
+
+  useEffect(() => {
+    if (mapRef.current && geoJsonRef.current) {
+      mapRef.current.fitBounds(geoJsonRef.current.getBounds());
+    }
+  });
+
+  const mapCenter = getCenterOfGeoJson(geoJson);
+
+  function onEachFeature(country, layer) {
+    let name = "";
+    let placeTotalList = "";
+    // console.log(country);
+    if (country.id !== undefined) {
+      name = country.properties.st_nm;
+      const selectState = states.find((s) => s.stateName === name);
+      placeTotalList = "<h5>"+ name +"</h5> <h6> Reported Cases: "+ selectState?.reportCase +"</h6>";
+    } else {
+      name = country.properties.district;
+    }
+    var data = placeTotalList === "" ? name : placeTotalList;
+    layer.bindPopup(data, { closeButton: false });
+    let layerUtils = layersUtils(geoJsonRef, mapRef);
+    layer.on({
+      mouseover: (e) => {
+        layer.openPopup(e.latlng);
+        layerUtils.highlightOnClick(e);
+      },
+      mouseout: (e) => {
+        layer.closePopup();
+        layerUtils.resetHighlight(e);
+      },
+      click: onDrillDown,
+    });
+  }
+
+  function geoJSONStyle(feature) {
+    const shade = states.find((s) => s.stateName === feature.properties.st_nm);
+    return {
+      color: "#ffffff",
+      weight: 1,
+      fillOpacity: 0.9,
+      fillColor: shade ? colorScale(shade.reportCase) : "#b0b0b0",
+    };
+  }
 
   return (
-    <MapContainer center = { [ 20.593683, 78.962883 ] }
-         zoom = { 5 }
-         scrollWheelZoom = { true }
-     >
-     <TileLayer
-attribution='&copy; 
-<a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-       url = 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'
-     />
-</MapContainer>
-// {/* <MapContainer
-// center={position}
-// zoom={13}
-// style={mapStyle}
-// whenCreated={setMap}
-// >
-// </MapContainer> */}
+    <div className="mapMainContainer">
+      <MapContainer
+        className="map"
+        center={mapCenter}
+        zoom={4}
+        scrollWheelZoom={false}
+        dragging={false}
+        doubleClickZoom={false}
+        attributionControl={false}
+        zoomControl={false}
+        ref={mapRef}
+      >
+        {geoJsonId !== "india-states" && (
+          <div className="buttonWrapper">
+            <OverlayTrigger
+              key="bottom"
+              placement="bottom"
+              overlay={
+                <Tooltip className="form-tooltip-bottom">
+                  <strong>Back To India View</strong>.
+                </Tooltip>
+              }
+            >
+              <Button
+                variant="info"
+                onClick={() => setGeoJsonId(COUNTRY_VIEW_ID)}
+                className="text-center backButton rounded-circle"
+              >
+                <FontAwesomeIcon icon={faHandPointLeft} />
+              </Button>
+            </OverlayTrigger>
+          </div>
+        )}
+        <GeoJSON
+          data={geoJson}
+          key={geoJsonId}
+          style={geoJSONStyle}
+          onEachFeature={onEachFeature}
+          ref={geoJsonRef}
+          id="geoJsonAll"
+        />
+        {/* {mapRef.current !== null && 
+    <MapLegend map={mapRef}/>
+    } */}
+      </MapContainer>
+    </div>
   );
-}
+};
 
 export default Maps;

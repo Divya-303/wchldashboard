@@ -1,29 +1,28 @@
-import React from 'react';
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 function Footer() {
-    const stickyFooterStyle = {
-        backgroundColor: "rgb(235 228 228 / 27%)",
-        fontSize: "13px",
-        color: "black",
-        borderTop: "1px solid rgb(225 220 220 / 12%)",
-        textAlign: "center",
-        paddingTop: "15px",
-        paddingBottom: "30px",
-        position: "absolute",
-        // left: "0",
-        // bottom: "0",
-        height: "30px",
-        width: "100%",
-        marginTop: "30px"
-      };
+  const stickyFooterStyle = {
+    backgroundColor: "rgb(235 228 228 / 27%)",
+    fontSize: "13px",
+    color: "black",
+    borderTop: "1px solid rgb(225 220 220 / 12%)",
+    textAlign: "center",
+    paddingTop: "15px",
+    paddingBottom: "30px",
+    position: "absolute",
+    // left: "0",
+    // bottom: "0",
+    height: "30px",
+    width: "100%",
+    marginTop: "30px",
+  };
   return (
     <Container fluid>
-        <Row>
-          <Col style={stickyFooterStyle}>
-            &copy; Copyright 2023 - 2024 | C-DAC |
-            info@cdac.in  
-            {/* <a
+      <Row>
+        <Col style={stickyFooterStyle}>
+          &copy; Copyright 2023 - 2024 | C-DAC | info@cdac.in
+          {/* <a
               href="#"
               target="_blank"
               rel="noopener nonreferrer"
@@ -31,10 +30,10 @@ function Footer() {
               {" "}
              C-DAC
             </a> */}
-          </Col>
-        </Row>
-      </Container>
-  )
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
-export default Footer
+export default Footer;
