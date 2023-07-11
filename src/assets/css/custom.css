@@ -1024,3 +1024,14 @@ a.cases-link:hover {
     width: 100%;
   }
 }
+
+/* to hide dropdown arrow */
+.dropdown-toggle::after {
+  display: none;
+}
+
+/* to reduce the box-size of download options */
+.dropdown-menu {    
+  min-width: 5rem;
+  transform: translate(-6px, -14px);
+}

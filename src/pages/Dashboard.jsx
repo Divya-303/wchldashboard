@@ -22,18 +22,28 @@ import Footer from "../components/Footer";
 import signals from "./../data/signals";
 import BarChart from "../components/BarChart";
 import states from "../data/states";
+// import Dropdown from "react-bootstrap/Dropdown";
+// import NavItem from "react-bootstrap/NavItem";
+// import NavLink from "react-bootstrap/NavLink";
+// import { exportToExcel } from 'react-json-to-excel';
+// import { useLocation } from "react-router-dom";
+
 // import RadialChart from "../components/RadialChart";
 // import Timeline from "../components/Timeline";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
   faBullhorn,
   faChartSimple,
-  faMagnifyingGlassChart,
+  faMagnifyingGlassChart
 } from "@fortawesome/free-solid-svg-icons";
 import TabPanel from "../components/TabPanel";
+import DownloadFile from "../components/DownloadFile";
 
 const Dashboard = () => {
   const [key, setKey] = useState("national_level");
+  
+  // const location = useLocation();
+  // console.log(location.state);
   // const [service, setServive] = useState(false);
   // const selectedValue = val => {
   //      val === 'c03' ? setServive(true) : setServive(false);
@@ -44,6 +54,14 @@ const Dashboard = () => {
   //   e.children[0].style.borderTopColor = 'green';
   //   e.children[1].style.backgroundColor = 'green';
   // };
+
+
+  // const HandleClick = ({content}) => {
+  //   const location = useLocation();
+  //   console.log(location.state);
+  //   console.log(content);
+  // }
+
   return (
     <>
       <Header />
@@ -197,20 +215,21 @@ const Dashboard = () => {
                         </Col>
                       </Row>
                     </Col>
+
                     <Col xs={12} xl={10}>
                       <Row className="gy-2">
                         <Col xl={12}>
                           <Card className="p-3 card-design">
-                            <div className="mb-2">
-                              <h5 className="fw-bold title-text">
-                                All state Cases
-                              </h5>
-                              <BarChart
-                                state={states}
-                                type="national"
-                                height="228"
-                              />
-                            </div>
+                            <Row>
+                            <Col>
+                              <h5 className="fw-bold title-text"> All state Cases </h5>
+                            </Col>  
+                            <Col className="d-flex justify-content-end align-content-end">
+                              <DownloadFile state={states} type='state cases'/>
+                            </Col>
+                            </Row>
+                              <BarChart state={states} type="national" height="228" />
+
                           </Card>
                         </Col>
                         <Col xl={12}>
@@ -251,16 +270,14 @@ const Dashboard = () => {
 
                               <Col xl={12}>
                                 <Card className="mt-4 p-3 card-design">
-                                  <h5 className="fw-bold title-text">
-                                    Call response Time{" "}
-                                  </h5>
-                                  <LineChart
-                                    type="curve"
-                                    state={states}
-                                    height="183"
-                                  />
+                                  <Row> <Col> <h5 className="fw-bold title-text"> Call response Time </h5> </Col>
+                                        <Col className="d-flex justify-content-end align-content-end">
+                                        <DownloadFile state={states} type='state response'/> </Col>
+                                  </Row>
+                                  <LineChart type="curve" state={states} height="183" />
                                 </Card>
                               </Col>
+
                             </Col>
                             <Col xs={12} xl={4}>
                               <Card className="p-3 card-design main-case-list">
@@ -303,7 +320,7 @@ const Dashboard = () => {
                       Reported Cases in State
                     </h5>
                     {/* <Image src={map} className="img-fluid rounded-start img-map" alt="Map Pic" />   */}
-                 
+
                   </Card>
                   <Maps />
                 </Col>

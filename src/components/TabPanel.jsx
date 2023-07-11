@@ -15,6 +15,7 @@ import DoughnutChart from "../components/DoughnutChart";
 import LineChart from "../components/LineChart";
 import timer from "../data/timer";
 import ListGroups from "../components/ListGroups";
+import DownloadFile from "../components/DownloadFile";
 
 const TabPanel = () => {
   const [key, setKey] = useState("case_details");
@@ -56,16 +57,17 @@ const TabPanel = () => {
                 ))}
               </Row>
             </Col>
+
             <Col sm={7} xl={5}>
               <Card className="p-3 card-design">
                 <div className="mb-2">
-                  <h5 className="fw-bold title-text">District</h5>
-                  <BarChart
-                    state={districts}
-                    type="statelevel"
-                    height="630"
-                    className="scroll-box"
-                  />
+                <Row>
+                  <Col> <h5 className="fw-bold title-text">District</h5> </Col>
+                  <Col className="d-flex justify-content-end align-content-end"> 
+                    <DownloadFile state={districts} type='district cases'/>
+                  </Col>
+                  <BarChart state={districts} type="statelevel" height="630" className="scroll-box" />
+                </Row>
                 </div>
               </Card>
             </Col>
@@ -143,8 +145,12 @@ const TabPanel = () => {
             <Col xl={12}>
               <Card className="mt-2 p-3 card-design">
                 <div className="mb-2">
-                  <h5 className="fw-bold title-text">Call response Time </h5>
+                <Row>
+                  <Col> <h5 className="fw-bold title-text">Call response Time </h5>  </Col>
+                  <Col className="d-flex justify-content-end align-content-end">
+                    <DownloadFile state={districts} type='district response'/> </Col>
                   <LineChart type="curve" state={states} height="155" />
+                  </Row>
                 </div>
               </Card>
             </Col>
