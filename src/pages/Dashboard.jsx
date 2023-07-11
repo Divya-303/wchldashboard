@@ -1,4 +1,20 @@
-import React, { useState } from "react";
+/*
+ * File: Dashboard.jsx
+ * Project: login
+ * Created Date: Tuesday, July 11th 2023, 5:14:10 pm
+ * Author: Divya S J (divya.sj@cdac.in)
+ * -----
+ * Last Modified: 
+ * Modified By: 
+ * -----
+ * Copyright (c) 2023 Centre for Development of Advanced Computing
+ * -----
+ * HISTORY:
+ * Date      	By	Comments
+ * ----------	---	----------------------------------------------------------
+ */
+
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 // import SideMenu from "../components/SideMenu";
 import Tab from "react-bootstrap/Tab";
@@ -54,14 +70,7 @@ const Dashboard = () => {
   //   e.children[0].style.borderTopColor = 'green';
   //   e.children[1].style.backgroundColor = 'green';
   // };
-
-
-  // const HandleClick = ({content}) => {
-  //   const location = useLocation();
-  //   console.log(location.state);
-  //   console.log(content);
-  // }
-
+  // window.innerHeight
   return (
     <>
       <Header />
@@ -69,13 +78,13 @@ const Dashboard = () => {
 
       <Container fluid className="page-container bg-color">
         <Row className="form-filter gy-1 justify-content-end">
-          <Col xs={12} sm={12} md={12} lg={6} xl={6}>
+          <Col xs={12} sm={12} md={12} lg={4} xl={4}>
             {/* <Form.Label>Date Range</Form.Label> */}
             <OverlayTrigger
-              key="bottom"
-              placement="bottom"
+              key="top"
+              placement="top"
               overlay={
-                <Tooltip className="form-tooltip-bottom">
+                <Tooltip className="form-tooltip-top">
                   <strong>Date Range</strong>.
                 </Tooltip>
               }
@@ -85,14 +94,14 @@ const Dashboard = () => {
               </div>
             </OverlayTrigger>
           </Col>
-          <Col xs={12} sm={12} md={12} lg={6} xl={6}>
+          <Col xs={12} sm={12} md={12} lg={4} xl={4}>
             {/* <Form.Label>Type of Calls</Form.Label> */}
             {/* show={true} */}
             <OverlayTrigger
-              key="bottom"
-              placement="bottom"
+              key="top"
+              placement="top"
               overlay={
-                <Tooltip className="form-tooltip-bottom">
+                <Tooltip className="form-tooltip-top">
                   <strong>Type of Calls</strong>.
                 </Tooltip>
               }
@@ -108,13 +117,13 @@ const Dashboard = () => {
               </div>
             </OverlayTrigger>
           </Col>
-          {/* <Col xs={12} sm={12} md={12} lg={4} xl={4}> 
-        <Form.Label>Age Range</Form.Label>
+          <Col xs={12} sm={12} md={12} lg={4} xl={4}> 
+        {/* <Form.Label>Age Range</Form.Label> */}
         <OverlayTrigger
-          key="bottom"
-          placement="bottom"
+          key="top"
+          placement="top"
           overlay={
-            <Tooltip className="form-tooltip-bottom">
+            <Tooltip className="form-tooltip-top">
               <strong>Age Range</strong>.
             </Tooltip>
           }
@@ -131,10 +140,9 @@ const Dashboard = () => {
     pearling
     minDistance={1}
 />
-</div> */}
-          {/* 
+</div>       
     </OverlayTrigger>
-      </Col>  */}
+      </Col> 
         </Row>
 
         <Tabs
@@ -317,7 +325,7 @@ const Dashboard = () => {
                 <Col xs={12} xl={4}>
                   <Card className="p-3 card-design">
                     <h5 className="fw-bold mb-0 title-text">
-                      Reported Cases in State
+                      Reported Cases 
                     </h5>
                     {/* <Image src={map} className="img-fluid rounded-start img-map" alt="Map Pic" />   */}
 

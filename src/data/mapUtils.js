@@ -22,12 +22,10 @@ export function layersUtils(geoJsonRef, mapRef) {
   }
 
   function resetHighlight(e) {
-    // geoJsonRef.current.leafletElement.resetStyle(e.target);
     geoJsonRef.current.resetStyle(e.target);
   }
 
   function zoomToFeature(e) {
-    // mapRef.current.leafletElement.fitBounds(e.target.getBounds());
     mapRef.current.fitBounds(e.target.getBounds());
   }
 

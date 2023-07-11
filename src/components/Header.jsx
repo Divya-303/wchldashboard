@@ -55,6 +55,9 @@ const Header = () => {
             <Dropdown.Item>
               <span className="user-action">Profile Settings</span>
             </Dropdown.Item>
+            <Dropdown.Item href="/manageUser">
+              <span className="user-action">Manage Users</span>
+            </Dropdown.Item>
             <Dropdown.Item>
               <span className="user-action">Log Out</span>
             </Dropdown.Item>

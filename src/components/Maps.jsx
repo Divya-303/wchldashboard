@@ -10,7 +10,7 @@ import india from "../json/india.json";
 import states from "../data/states";
 import { layersUtils, getCenterOfGeoJson } from "../data/mapUtils";
 import { scaleQuantile } from "d3-scale";
-// import MapLegend from './MapLegend';
+import Control from "react-leaflet-custom-control";
 import "leaflet/dist/leaflet.css";
 
 const COUNTRY_VIEW_ID = "india-states";
@@ -20,23 +20,16 @@ const Maps = () => {
   const geoJson = topojson.feature(india, india.objects[geoJsonId]);
   const colorScale = scaleQuantile()
     .domain(states.map((s) => s.reportCase))
-    .range([
-      "#193d8f",
-      "#226ab1",
-      "#3b8dc2",
-      "#65abd3",
-      "#c5d9ed",
-      //   "#e2492d",
-      //   "#be3d26",
-      //   "#9a311f",
-      //   "#782618"
-    ]);
+    .range(["#c5d9ed","#65abd3", "#3b8dc2", "#226ab1", "#193d8f" ]);
+
+    
 
   var mapRef = useRef(null);
   var geoJsonRef = useRef(null);
+  let low;
+  let high;
 
   const onDrillDown = (e) => {
-    // console.log(e.target.feature);
     const featureId = e.target.feature.id;
     if (!india.objects[featureId]) {
       return;
@@ -59,7 +52,12 @@ const Maps = () => {
     if (country.id !== undefined) {
       name = country.properties.st_nm;
       const selectState = states.find((s) => s.stateName === name);
-      placeTotalList = "<h5>"+ name +"</h5> <h6> Reported Cases: "+ selectState?.reportCase +"</h6>";
+      placeTotalList =
+        "<h5>" +
+        name +
+        "</h5> <h6> Reported Cases: " +
+        selectState?.reportCase +
+        "</h6>";
     } else {
       name = country.properties.district;
     }
@@ -89,6 +87,35 @@ const Maps = () => {
     };
   }
 
+  const legend = () => {
+    let sortState = states.sort(function (a, b) {
+      return a.reportCase - b.reportCase;
+    });
+    const l = sortState.length;
+    low = sortState[0].reportCase;
+    high = sortState[l - 1].reportCase;
+    let from;
+    let next;
+    let bgColor;
+    return sortState.map((data, i) => {
+      from = data.reportCase;
+      next =
+        sortState[i + 1] !== undefined
+          ? sortState[i + 1].reportCase
+          : data.reportCase;
+      if (colorScale(from) === colorScale(next)) {
+        bgColor = { backgroundColor: `${colorScale(from)}` };
+      } else {
+        bgColor = {
+          backgroundImage: `linear-gradient(to right, ${colorScale(
+            from
+          )}, ${colorScale(next)})`,
+        };
+      }
+      return <i key={i} style={bgColor}></i>;
+    });
+  };
+
   return (
     <div className="mapMainContainer">
       <MapContainer
@@ -102,27 +129,36 @@ const Maps = () => {
         zoomControl={false}
         ref={mapRef}
       >
-        {geoJsonId !== "india-states" && (
-          <div className="buttonWrapper">
-            <OverlayTrigger
-              key="bottom"
-              placement="bottom"
-              overlay={
-                <Tooltip className="form-tooltip-bottom">
-                  <strong>Back To India View</strong>.
-                </Tooltip>
-              }
-            >
-              <Button
-                variant="info"
-                onClick={() => setGeoJsonId(COUNTRY_VIEW_ID)}
-                className="text-center backButton rounded-circle"
+        <Control position="topleft">
+          <h4 className="mapName">
+            {geoJsonId === "india-states" ? "India" : geoJsonId}
+          </h4>
+        </Control>
+
+        <Control position="topright">
+          {geoJsonId !== "india-states" && (
+            <div className="buttonWrapper">
+              <OverlayTrigger
+                key="bottom"
+                placement="bottom"
+                overlay={
+                  <Tooltip className="form-tooltip-bottom">
+                    <strong>Back To India View</strong>.
+                  </Tooltip>
+                }
               >
-                <FontAwesomeIcon icon={faHandPointLeft} />
-              </Button>
-            </OverlayTrigger>
-          </div>
-        )}
+                <Button
+                  variant="info"
+                  onClick={() => setGeoJsonId(COUNTRY_VIEW_ID)}
+                  className="text-center backButton rounded-circle"
+                >
+                  <FontAwesomeIcon icon={faHandPointLeft} />
+                </Button>
+              </OverlayTrigger>
+            </div>
+          )}
+        </Control>
+
         <GeoJSON
           data={geoJson}
           key={geoJsonId}
@@ -131,9 +167,21 @@ const Maps = () => {
           ref={geoJsonRef}
           id="geoJsonAll"
         />
-        {/* {mapRef.current !== null && 
-    <MapLegend map={mapRef}/>
-    } */}
+
+        <Control position="bottomright">
+          {geoJsonId === "india-states" && (
+            <div className="info legend">
+              <div>
+                <span>Number of Reported Cases</span>
+              </div>
+              <div>{legend()}</div>
+              <div className="clearfix">
+                <span className="float-start">{low}</span>
+                <span className="float-end">{high}</span>
+              </div>
+            </div>
+          )}
+        </Control>
       </MapContainer>
     </div>
   );

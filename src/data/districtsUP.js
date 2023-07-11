@@ -16,13 +16,7 @@ const districtsUP = [
   { id: 15, district: "Basti", cases: 10 },
   { id: 16, district: "Bijnor", cases: 9 },
   { id: 17, district: "Bulandshahr", cases: 77 },
-  {
-    id: 18,
-    // district: 'Chandauli(Varanasi Dehat)',
-    district: "Chandauli",
-
-    cases: 19,
-  },
+  { id: 18, district: "Chandauli(Varanasi Dehat)", cases: 19 },
   { id: 19, district: "Chitrakoot", cases: 56 },
   { id: 20, district: "Deoria", cases: 43 },
   { id: 21, district: "Etah", cases: 11 },
